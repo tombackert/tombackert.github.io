@@ -12,12 +12,12 @@ a:link {
   text-decoration: none;
 }
 a:visited {
-  color: pink;
+  color: rgb(5, 246, 238);
   background-color: transparent;
   text-decoration: none;
 }
 a:hover {
-  color: rgb(0, 26, 255);
+  color: rgb(5, 45, 246);
   background-color: transparent;
   text-decoration: underline;
 }
@@ -112,17 +112,40 @@ a:active {
 
 
 .bg-primary-landing {
-  background-color: rgb(195, 19, 19);
+  background-color: rgb(255, 255, 255);
   margin-left: -5rem;
   margin-right: -5rem;
 }
 
 .bg-primary-about {
-  background-color: rgb(10, 92, 235);
+  background-color: rgb(8, 247, 247);
   margin-left: -5rem;
   margin-right: -5rem;
 }
 
+.bg-primary-blog {
+  background-color: rgb(39, 251, 6);
+  margin-left: -5rem;
+  margin-right: -5rem;
+}
+
+.bg-primary-books {
+  background-color: rgb(235, 10, 164);
+  margin-left: -5rem;
+  margin-right: -5rem;
+}
+
+.bg-primary-projects {
+  background-color: rgb(235, 85, 10);
+  margin-left: -5rem;
+  margin-right: -5rem;
+}
+
+.bg-primary-research {
+  background-color: rgb(239, 247, 13);
+  margin-left: -5rem;
+  margin-right: -5rem;
+}
 
 
 
