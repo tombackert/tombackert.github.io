@@ -32,12 +32,36 @@ body {
     grid-area: right;
 }
 
-.article-grid div {
-    display: inline-block;
-    position: auto;
-    width: 22%;
-    margin: 1rem;
+
+
+* {
+  box-sizing: border-box;
 }
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 25%;
+  padding: 20px;
+}
+
+@media screen and (max-width: 1300px) {
+  .column {
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+
 
 .footer {
   position: relative;
