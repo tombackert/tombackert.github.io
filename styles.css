@@ -6,6 +6,27 @@ body {
   padding-right: 10rem;
 }
 
+a:link {
+  color: rgb(5, 246, 238);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(0, 26, 255);
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .topnav {
   background-color: #000;
   color: #fff;
@@ -89,9 +110,21 @@ body {
   text-align: right;
 }
 
-.bg-primary {
-  background-color: rgb(255, 255, 255);
+
+.bg-primary-landing {
+  background-color: rgb(195, 19, 19);
+  margin-left: -5rem;
+  margin-right: -5rem;
 }
+
+.bg-primary-about {
+  background-color: rgb(10, 92, 235);
+  margin-left: -5rem;
+  margin-right: -5rem;
+}
+
+
+
 
 .hidden {
     display: none;
