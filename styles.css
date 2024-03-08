@@ -17,12 +17,12 @@ a:visited {
   text-decoration: none;
 }
 a:hover {
-  color: rgb(8, 247, 247);
+  color: hsl(243, 94%, 50%);
   background-color: transparent;
   text-decoration: underline;
 }
 a:active {
-  color: yellow;
+  color: rgb(255, 0, 0);
   background-color: transparent;
   text-decoration: underline;
 }
@@ -36,29 +36,26 @@ a:active {
   grid-template-areas: "left center right";
   position: -webkit-sticky;
   position: sticky;
-  
+
   top: 0;
   z-index: 1000;
 }
 .topnav-left {
-    text-align: left;
-    grid-area: left;
+  text-align: left;
+  grid-area: left;
 }
 .topnav-center {
-    text-align: center;
-    grid-area: center;
+  text-align: center;
+  grid-area: center;
 }
 .topnav-right {
-    text-align: right;
-    grid-area: right;
+  text-align: right;
+  grid-area: right;
 }
-
-
 
 * {
   box-sizing: border-box;
 }
-
 
 .row {
   display: flex;
@@ -89,8 +86,6 @@ a:active {
   }
 }
 
-
-
 .footer {
   position: relative;
   z-index: 1;
@@ -108,8 +103,8 @@ a:active {
 }
 
 .footer-center {
-    grid-area: center;
-    text-align: center;
+  grid-area: center;
+  text-align: center;
 }
 
 .footer-right {
@@ -117,12 +112,13 @@ a:active {
   text-align: right;
 }
 
-
 .bg-primary-landing {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0,0,255);
   margin-left: -5%;
   margin-right: -5%;
 }
+
+
 
 .bg-primary-about {
   background-color: rgb(8, 247, 247);
@@ -154,8 +150,6 @@ a:active {
   margin-right: -5%;
 }
 
-
-
 .hidden {
-    display: none;
+  display: none;
 }
