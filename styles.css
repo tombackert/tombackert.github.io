@@ -30,7 +30,7 @@ a:visited {
   text-decoration: none;
 }
 a:hover {
-  color: #F21BE4;
+  color: #f21be4;
   background-color: transparent;
   text-decoration: underline;
 }
@@ -130,13 +130,13 @@ a:active {
 }
 
 .bg-primary-landing {
-  background-color: #00d0ff;
+  background-color: #0000ff;
   margin-left: -20%;
   margin-right: -20%;
 }
 
 .bg-primary-about {
-  background-color: #F21BE4;
+  background-color: #2d00f7;
   margin-left: -5%;
   margin-right: -5%;
 }
