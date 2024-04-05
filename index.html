@@ -20,16 +20,15 @@
             </div>
             
             <div class="topnav-center">
-                <a href="research.html">Research</a>
-                <a href="blog.html">Blog</a>
-                <a href="projects.html">Projects</a>
-                <a href="books.html">Books</a>
+                <a href="#">Research</a>
+                <a href="#">Blog</a>
+                <a href="#">Projects</a>
+                <a href="#">Books</a>
             </div>
             
             <div class="topnav-right">
                 <a href="#">Search</a>
-                <a href="about.html">Contact</a>
-                <a href="#bottom">bottom</a>
+                <a href="#">Contact</a>
             </div>
 
         </div>
@@ -38,177 +37,142 @@
     </nav>
     
     <main class="main">
-        <div>
+        
+        
+        <h1>Tom Backert</h1>
+        
+
+        <h2>Contact</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/tombackert" target="_blank">GitHub</a>
+                </li>
+                <li>
+                    <a href="https://open.spotify.com/user/tom.backert" target="_blank">Spotify</a>
+                </li>
+                <li>
+                    <a href="">tom.backert@t-online.de</a>
+                    via mail
+                </li>
+            </ul> 
             
-            <h1>Tom Backert</h1>
             
-            
-            <h2>Contact</h2>
-                <ul>
-                    <li>
-                        <a href="https://github.com/tombackert" target="_blank">GitHub</a>
-                    </li>
-                    <li>
-                        <a href="https://open.spotify.com/user/tom.backert" target="_blank">Spotify</a>
-                    </li>
-                    <li>
-                        <a href="">tom.backert@t-online.de</a>
-                         via mail
-                    </li>
-                </ul> 
+        <h2>Interests</h2>
+        <ul>
+            <li>
+                I love to build things and learn new stuff. Mostly CS and AI related.
+            </li>
+        </ul>
+        
                 
+        <h2>Projects</h2>
+            All my projects are available on my <a href="https://github.com/tombackert">GitHub</a>.
+            <ul>
+                <li>
+                    <a href="https://github.com/tombackert/ml-stuff/blob/main/mnist_grad_cam.ipynb">MNIST</a>: 
+                        I trained a neural network on the classic <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST Digit Recognition Problem</a>. I also used <a href="https://arxiv.org/abs/1610.02391">GradCAM</a> to visualize what features were most important for the models decision.
+                </li>
+                <li> 
+                    <a href="https://github.com/tombackert/ml-stuff/blob/main/Brain_tumor_MRI_Accuracy_99_and_Grad_CAM.ipynb">Brain Tumor Classifier</a>:
+                        I built a Brain Tumor Classifier using <a href="https://arxiv.org/pdf/1511.08458.pdf">Deep Convolutional Neural Networks</a> (CNNs) to <a href="https://www.mdpi.com/2079-9292/12/4/955">classify brain tumors on MRI Scans</a>.
+                        Keras Xception was used as a base model with pretrained ImageNet weights.
                 
-                <h2>Interests</h2>
-                <ul>
-                    <li>
-                        I love to build things and learn new stuff. Mostly Artifical Intelligence realated.
-                    </li>
-                </ul>
-            
-                
-                
-                
-                
-                
-                
-                <h2>Projects</h2>
-                    All my projects are available on my <a href="https://github.com/tombackert">GitHub</a>.
-                    
-                    <ul>
-                        <li>
-                            <a href="https://github.com/tombackert/ml-stuff/blob/main/mnist_grad_cam.ipynb">MNIST</a>: 
-                                I trained a neural net on the classic MNIST Digit Recognition Problemn. I also used GradCAM to visualize what features are most important for the networks decision.
-                        </li>
-                        <li> 
-                            <a href="https://github.com/tombackert/ml-stuff/blob/main/Brain_tumor_MRI_Accuracy_99_and_Grad_CAM.ipynb">Brain Tumor Classifier</a>:
-                                I built a Brain Tumor Classifier using Deep Convolutional Neural Networks (CNNs) to classify brain tumors on MRI Scans.
-                                Keras Xception was used as a base model which was pretrained on the ImageNet Dataset.
+                        The base model was then finetuned for and applied on brain MRI scans via <a href="https://arxiv.org/pdf/1911.02685.pdf">transfer learning</a>.
                         
-                                The base model was then finetuned for brain MRI scans via transfer learning.
-                                In the end, I applied <a href="https://arxiv.org/abs/1610.02391">GradCAM</a> to visualize the tumor on the scans.
-                                
-                            <ul>                                            
-                                <li>
-                                    Resources:
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.tensorflow.org/">Tensorflow</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.tensorflow.org/api_docs/python/tf/keras/applications/Xception">Tensorflow Keras
-                                                Xception</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://arxiv.org/abs/1610.02357">Xception paper</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.image-net.org/">ImageNet</a>
-                                        </li>
-                                        <li>
-                                            <a href=">Project
-                                                Notebook Link</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://arxiv.org/abs/1610.02391">GradCAM</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    
+                        In the end, <a href="https://arxiv.org/abs/1610.02391">GradCAM</a> was applied to visualize the models decision and therefore the tumor on the MRI scans.
+                        
+                    <ul>                                            
                         <li>
-                            <a href="https://github.com/tombackert/nanoGPT">NanoGPT:</a>
-                                I rebuilt Andrej Karpathy's NanoGPT to understand more about Large Language Models (LLMs) and the idea of
-                                transformers. It was trained on the tiny shakesspear dataset and was able to produce resonable shakesspear
-                                language.
-                        </li>
+                            Resources:
+                            <a href="https://www.tensorflow.org/">Tensorflow, </a>
+                            <a href="https://www.tensorflow.org/api_docs/python/tf/keras/applications/Xception">Keras Xception, </a>
+                            <a href="https://arxiv.org/abs/1610.02357">Xception paper, </a>
+                            <a href="https://www.image-net.org/">ImageNet, </a>
+                            <a href="https://arxiv.org/abs/1610.02391">GradCAM</a>
                             
-                        <li>
-                            <a href="https://github.com/tombackert/ml-stuff/blob/main/back_prop_from_scratch.ipynb">Back Propagation from scratch:</a>
-                                I implemented the Backpropagation Algorithm from scratch to understand how neural networks actually learn.
-                                This was doing the Andrej Karpathy <a href="">lecture</a>.
-                        </li>
-                        <li>
-                            <a href="https://github.com/tombackert/handson-ml">Handson-ml:</a> I have some notebooks on the Handson ML book.
-                        </li>
-                        <li>
-                            <a href="https://github.com/tombackert/rl-stuff/blob/main/first-notebook-on-reinforcement-learning.ipynb">Lunar Lander: </a>
-                                I build an Reinforment Learning (RL) Agent who can land the Lunar Lander. I used the <a href="https://gymnasium.farama.org/">Gymnasium</a> api and <a href="https://stable-baselines3.readthedocs.io/en/master/#">Stable Baselines3</a> for implementation of the <a href="https://www.nature.com/articles/nature14236">DQN-Algorithm</a>.
-                        </li>
-                        <li>
-                            <a href="https://github.com/tombackert/ninja-game">Ninja Game:</a>
-                                I built a Ninja 2D Platformer game. 
                         </li>
                     </ul>
+                </li>
             
-                
-            
-            
-            
-            
-            
-            <h2>Interesting Links</h2>
-                <ul>
-                    <li>
-                        <a href="https://www.kaggle.com/code/soniadsilva/ai-at-the-cutting-edge-of-medical-imaging">2023 Kaggle AI Report - AI at the cutting edge of Medical Imaging</a>
-                    </li>
-                    <li>
-                        <a href="https://www.kaggle.com/code/emirhanbilgic/ai-ethics-we-are-about-to-be-late">2023 Kaggle AI Report - AI Ethics, We Are About to Be Late</a>
-                    </li>
-                    <li>
-                        <a href="https://www.kaggle.com/code/trushk/2023-kaggle-ai-report-generative-ai#intro">2023 Kaggle AI Report - Generative AI</a>
-                    </li>
-                    <li>
-                        <a href="https://www.kaggle.com/code/antongc/developments-in-ai-and-ethics-in-the-past-2-years">2023 Kaggle AI Report - Developments in AI and Ethics in the Past 2 Years</a>
-                    </li>
-                    <li>
-                        <a href="https://www.kaggle.com/code/radbear/advances-in-ai-vision-models-in-the-last-two-years">2023 Kaggle AI Report - Advances in AI Vision Models in the Last Two Years</a>
-                    </li>
-                    <li>
-                        <a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2020.0363">Artificial intelligence explainability: the technical and ethical dimensions</a>
-                    </li>
-                </ul>
-           
-            
-            
-            
-            
-            
-            
-            <h2>Learning Resources</h2>
-                This section provides valuable learning resources to dive deeper into the topics.
-                
-   
-                <ul>
-                    <li>
-                        Reinforment Learning:
-                        <ul>
-                            <li>
-                                <a href="https://spinningup.openai.com/en/latest/">OpenAI Spinning Up</a>
-                            </li>
-                            <li>
-                                <a href="https://huggingface.co/learn/deep-rl-course/unit0/introduction">Huggingface's Deep RL Course</a>
-                            </li>
-                            <li>
-                                <a href="https://lilianweng.github.io/posts/2018-04-08-policy-gradient/">Lilian Weng's Blog</a>
-                            </li>
-                            <li>
-                                <a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Berkley's Deep RL Bootcamp</a>
-                            </li>
-                        </ul> 
-                    </li>
-                    <li>
-                        Machine Learning generell:
-                        <ul>
-                            <li>
-                                <a href="https://github.com/ageron/handson-ml2">Handson ML</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <li>
+                    <a href="https://github.com/tombackert/nanoGPT">NanoGPT:</a>
+                        I rebuilt Andrej Karpathy's NanoGPT to understand more about Large Language Models (LLMs) and the idea of <a href="https://arxiv.org/abs/1706.03762">transformers</a>. It was trained on the Tiny Shakesspear dataset and was able to produce reasonable shakesspear
+                        language.
+                </li>
                     
+                <li>
+                    <a href="https://github.com/tombackert/ml-stuff/blob/main/back_prop_from_scratch.ipynb">Back Propagation from scratch:</a>
+                        I implemented the Backpropagation Algorithm from scratch to understand how neural networks actually learn.
+                        This was doing the Andrej Karpathy <a href="">lecture</a>.
+                </li>
 
-        </div>
+                <li>
+                    <a href="https://github.com/tombackert/handson-ml">Handson-ml:</a> I have some notebooks on the Handson ML book.
+                </li>
+
+                <li>
+                    <a href="https://github.com/tombackert/rl-stuff/blob/main/first-notebook-on-reinforcement-learning.ipynb">Lunar Lander: </a>
+                        I build an <a href="https://spinningup.openai.com/en/latest/spinningup/keypapers.html">Reinforment Learning</a> (RL) Agent who can land the Lunar Lander. I used the <a href="https://gymnasium.farama.org/">Gymnasium</a> api and <a href="https://stable-baselines3.readthedocs.io/en/master/#">Stable Baselines3</a> for implementation of the <a href="https://www.nature.com/articles/nature14236">DQN-Algorithm</a>.
+                </li>
+                
+                <li>
+                    <a href="https://github.com/tombackert/ninja-game">Ninja Game:</a>
+                        I built a Ninja 2D Platformer game in <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Pygame</a>. 
+                </li>
+            </ul>
+        
+
+        <h2>Interesting Links</h2>
+            <ul>
+                <li>
+                    <a href="https://www.kaggle.com/code/soniadsilva/ai-at-the-cutting-edge-of-medical-imaging">2023 Kaggle AI Report - AI at the cutting edge of Medical Imaging</a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/code/emirhanbilgic/ai-ethics-we-are-about-to-be-late">2023 Kaggle AI Report - AI Ethics, We Are About to Be Late</a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/code/trushk/2023-kaggle-ai-report-generative-ai#intro">2023 Kaggle AI Report - Generative AI</a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/code/antongc/developments-in-ai-and-ethics-in-the-past-2-years">2023 Kaggle AI Report - Developments in AI and Ethics in the Past 2 Years</a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/code/radbear/advances-in-ai-vision-models-in-the-last-two-years">2023 Kaggle AI Report - Advances in AI Vision Models in the Last Two Years</a>
+                </li>
+                <li>
+                    <a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2020.0363">Artificial intelligence explainability: the technical and ethical dimensions</a>
+                </li>
+                <li>
+                    <a href="https://paperswithcode.com/methods/category/convolutional-neural-networks">List of existing CNN models</a>
+                </li>
+            </ul>
+        
+        
+        <h2>Learning Resources</h2>
+            This section provides valuable learning resources to dive deeper into the topics:
+            <ul>
+                <li>
+                    <a href="https://www.coursera.org/specializations/machine-learning-introduction?">Andrew Ng's Machine Learning
+                        Specialization</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@AndrejKarpathy">Andrej Karpathy's Videos</a>
+                </li>
+                <li>
+                    <a href="https://spinningup.openai.com/en/latest/">OpenAI Spinning Up</a>
+                </li>
+                <li>
+                    <a href="https://huggingface.co/learn/deep-rl-course/unit0/introduction">Huggingface's Deep Reinforment Learning Course</a>
+                </li>
+                <li>
+                    <a href="https://lilianweng.github.io/posts/2018-04-08-policy-gradient/">Lilian Weng's Blog</a>
+                </li>
+                <li>
+                    <a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Berkley's Deep RL Bootcamp</a>
+                </li>
+            </ul>
+                
+
     </main>
 
     <footer class="footer">
@@ -221,9 +185,7 @@
     
             <div class="footer-center">
                 <a href="#">Twitter</a>
-                <a href="#">Youtube</a>
                 <a href="https://github.com/tombackert" target="_blank">GitHub</a>
-                <a href="#">Instagram</a>
                 <a href="https://open.spotify.com/user/tom.backert" target="_blank">Spotify</a>
                 <a href="#">LinkedIn</a>
             </div>
@@ -262,8 +224,6 @@
                 <div class="bg-primary-landing" style="margin-top:0px;height:50px"></div>
             </div>
         </div>
-    
-    
     </footer>
 
 </div>
