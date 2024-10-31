@@ -20,10 +20,17 @@ main {
 }
 
 a:link {
-  color: #1bf1f1;
+  color: #ffffff;
   background-color: transparent;
   text-decoration: none;
 }
+
+/* Klasse für die Projektüberschriften */
+a.project-title {
+  color: #1bf1f1; /* Blaue Farbe */
+}
+
+
 a:visited {
   color: #1bf1f1;
   background-color: transparent;
