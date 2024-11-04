@@ -2,6 +2,22 @@ let currentIndex = 0;
 let darkMode = true; // Default to dark mode
 
 document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.getElementById("navbar");
+
+    // Set threshold in pixels for when to hide the navbar
+    const hideThreshold = 200; // Adjust as needed
+
+    // Scroll event listener
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > hideThreshold) {
+            navbar.classList.add("hide-navbar"); // Hide navbar after threshold
+        } else {
+            navbar.classList.remove("hide-navbar"); // Show navbar when above threshold
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
     const iconElement = document.getElementById("theme-icon-img");
 
     // Set initial theme and icon based on darkMode variable
