@@ -1,3 +1,4 @@
+
 /* General Styles */
 body {
   background-color: #000;
@@ -41,11 +42,11 @@ a {
 }
 
 a:hover {
-  color: var(--link-hover-color, #1bf1f1); /* Default hover color set by Illusion */
+  color: var(--link-hover-color); /* Default hover color set by Illusion */
 }
 
 a:active {
-  color: #ccff00;
+  color: #1bf1f1;
 }
 
 /* Light Mode Link Styles */
@@ -54,7 +55,7 @@ body.light-mode a {
 }
 
 body.light-mode a:hover {
-  color: #ff6600;
+  color: var(--link-hover-color);
 }
 
 /* Navbar Styles */
@@ -151,6 +152,8 @@ body.light-mode .footer-content {
   */
 }
 
+
+
 .footer-section {
   text-align: left;
 }
@@ -179,9 +182,8 @@ body.light-mode .footer-section p {
 
 /* Link Styling */
 .footer-section ul li a {
-  color: #ffffff; /* White color for list items */
-  text-decoration: none;
-  transition: color 0.3s ease; /* Smooth hover effect */
+  color: #FFFFFF;
+  transition: color 0.3s ease;
 }
 
 /* Adjust link color for light mode */
@@ -191,7 +193,11 @@ body.light-mode .footer-section ul li a {
 
 /* Link Hover Effect */
 .footer-section ul li a:hover {
-  color: var(--link-hover-color, #1bf1f1);
+  color: var(--link-hover-color);
+}
+
+body.light-mode .footer-section ul li a:hover {
+  color: var(--link-hover-color);
 }
 
 /* Bottom Row */
@@ -213,7 +219,7 @@ body.light-mode .footer-bottom {
   width: 25px;
   height: 25px;
   margin-right: 15px;
-  opacity: 0.7;
+  opacity: 0.9;
   transition: opacity 0.3s ease;
 }
 
@@ -246,7 +252,7 @@ body.light-mode .footer-bottom {
 #theme-icon img {
     width: 30px; /* Match the social media icon size */
     height: 30px;
-    opacity: 0.7;
+    opacity: 0.9;
     transition: opacity 0.3s ease;
     cursor: pointer;
 }
