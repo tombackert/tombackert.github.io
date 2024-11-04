@@ -1,59 +1,81 @@
+/* General Styles */
 body {
   background-color: #000;
   color: #fff;
   font-family: sans-serif;
   padding-left: 10%;
   padding-right: 10%;
+  box-sizing: border-box;
 }
 
+body.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Page Layout */
 #page {
   display: grid;
   grid-template-areas:
     "nav"
     "main"
-    "footer";
+    "footer"
+    "illusion";
 }
+
+
 
 main {
   padding-top: 5%;
   padding-bottom: 10%;
 }
 
-a:link {
+/* Link Styles */
+a {
   color: #ffffff;
   background-color: transparent;
   text-decoration: none;
 }
 
-/* Klasse für die Projektüberschriften */
 a.project-title {
-  color: #1bf1f1; /* Blaue Farbe */
+  color: #1bf1f1;
 }
 
+/* Link Hover Color */
+a:hover {
+  color: var(--link-hover-color, #f21be4);
+}
+
+a:active {
+  color: #ccff00;
+}
 
 a:visited {
   color: #1bf1f1;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: #f21be4;
-  background-color: transparent;
-  text-decoration: underline;
-}
-a:active {
-  color: #ccff00;
-  background-color: transparent;
-  text-decoration: underline;
 }
 
+/* Light Mode Link Styles */
+body.light-mode a {
+  color: #0000ff;
+}
+
+body.light-mode a:hover {
+  color: #ff6600;
+}
+
+/* Navbar Styles */
 .topnav {
   padding-top: 1%;
   background-color: #000;
   color: #fff;
   position: sticky;
-  z-index: 1000;
   top: 0;
+  z-index: 1000;
+}
+
+body.light-mode .topnav {
+  background-color: #fff;
+  color: #000;
 }
 
 .navbar-content {
@@ -63,29 +85,137 @@ a:active {
 }
 
 .topnav-left {
-  text-align: left;
   grid-area: left;
+  text-align: left;
 }
+
 .topnav-center {
-  text-align: center;
   grid-area: center;
+  text-align: center;
 }
+
 .topnav-right {
-  text-align: right;
   grid-area: right;
-}
-
-* {
-  box-sizing: border-box;
+  text-align: right;
 }
 
 
-@media screen and (max-width: 1300px) {
+
+/* Footer Layout */
+.footer {
+    font-size: 0.8em; /* Smaller font size */
 }
 
-@media screen and (max-width: 950px) {
+/* Light and Dark Mode Styling */
+body.light-mode .footer {
+    color: #555;
 }
 
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+body.light-mode .footer-content {
+    border-bottom: 1px solid #ccc;
+}
+
+.footer-section {
+    text-align: left;
+}
+
+/* Topics */
+.footer-section p {
+    color: #888; /* Gray color for topics */
+    margin-bottom: 10px;
+    font-size: 0.8em; /* Consistent small font size */
+}
+
+/* Adjust color for light mode */
+body.light-mode .footer-section p {
+    color: #666;
+}
+
+/* List Items */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+/* Link Styling */
+.footer-section ul li a {
+    color: #ffffff; /* White color for list items */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Adjust link color for light mode */
+body.light-mode .footer-section ul li a {
+    color: #000;
+}
+
+/* Link Hover Effect */
+.footer-section ul li a:hover {
+    color: var(--link-hover-color, #1bf1f1);
+}
+
+/* Bottom Row */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    color: #888; /* Light gray for copyright */
+}
+
+/* Adjust color for light mode */
+body.light-mode .footer-bottom {
+    color: #000000;
+}
+
+/* Social Media Icons */
+.social-media a img {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-media a img:hover {
+    opacity: 1;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 800px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Background Element */
+.bg-primary-landing {
+  background-color: #0000ff;
+  margin-left: -20%;
+  margin-right: -20%;
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 300px) {
   .topnav {
     grid-template-columns: auto;
@@ -93,36 +223,8 @@ a:active {
   }
 }
 
-.footer {
-  position: relative;
-  z-index: 1;
-  bottom: auto;
-}
-
-.footer-content {
-  margin-bottom: 5%;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-areas: "left center right";
-}
-
-.footer-left {
-  grid-area: left;
-  text-align: left;
-}
-
-.footer-center {
-  grid-area: center;
-  text-align: center;
-}
-
-.footer-right {
-  grid-area: right;
-  text-align: right;
-}
-
-.bg-primary-landing {
-  background-color: #0000ff;
-  margin-left: -20%;
-  margin-right: -20%;
+/* Icon Styles */
+#theme-icon {
+  font-size: 20px;
+  cursor: pointer;
 }
