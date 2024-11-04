@@ -59,3 +59,14 @@ function changeColor() {
 
     console.log(`Current Illusion Color: ${newColor}`);
 }
+
+
+const container = document.querySelector('.scroll-container');
+
+// Verhindert, dass der Container vertikal scrollt
+container.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    container.scrollBy({
+        left: e.deltaY < 0 ? -100 : 100
+    });
+});
