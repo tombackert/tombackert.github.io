@@ -14,7 +14,7 @@
     <nav class="topnav" id="navbar">
         <div class="navbar-content">
             <div class="topnav-left">
-                <a href="#" class="navbar-title">Tom Backert</a>
+                <a href="#" class="navbar-title">TB</a>
             </div>
             
             <div class="topnav-center">
@@ -36,61 +36,60 @@
     
     <main class="main">
         
-
-        <h2>Contact</h2>
-            <ul>
-                <li>
-                    <a href="https://github.com/tombackert" target="_blank" class="project-title" >GitHub</a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/tom-backert-10a611323/" target="_blank">LinkedIn</a>
-                </li>
-                <li>
-                    <a href="https://open.spotify.com/user/tom.backert" target="_blank" class="project-title" >Spotify</a>
-                </li>
-                <li>
-                    <a href="" class="project-title" >tom.backert@t-online.de</a>
-                </li>
-            </ul> 
-            
-            
         <h2>Interests</h2>
-        <ul>
-            <li>
-                I love to explore and to build things. Mostly Computer Science and Artificial Intelligence related.
-            </li>
-        </ul>
+        <div class="interests-card">
+            <div class="interests-card-image" style="background-image: url('src/project5.png');">
+                <div class="name">
+                    Tom Backert
+                </div>
+                <div class="interests-card-content">
+                    <p>I love to explore and build things, mostly related to Computer Science and Artificial Intelligence.</p>
+                </div>
+            </div>
+        </div>
         
-                
+
+        <div class="contact">
+            <h2>Contact</h2>
+            <div class="contact-icons">
+                <a href="https://github.com/tombackert" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
+                <a href="https://open.spotify.com/user/tom.backert" target="_blank"><img src="icons/spotify.png" alt="Spotify"></a>
+                <a href="https://www.linkedin.com/in/tom-backert-10a611323/" target="_blank"><img src="icons/linkedin.png"
+                        alt="LinkedIn"></a>
+                <a href="https://discordapp.com/users/tom.backert" target="_blank"><img src="icons/discord.png" alt="Discord"></a>
+                <a href="https://instagram.com/tom18_08" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+                <a href="mailto:tom.backert@t-online.de"><img src="icons/mail.png" alt="Email"></a>
+            </div>
+        </div>
+        
         <h2>Projects</h2>
-        All my projects are available on my <a href="https://github.com/tombackert" class="project-title">GitHub</a>.
         
         <div class="scroll-container">
             <div class="card-container">
                 <!-- Apple Vision Pro Dev Card -->
                 <div class="card">
-                    <div class="card-image" style="background-image: url('src/test1.png');"></div>
+                    <div class="card-image" style="background-image: url('src/project1.png');"></div>
                     <div class="card-category">Project · San Francisco</div>
                     <div class="card-title">Apple Vision Pro Dev</div>
                     <div class="card-content">
                         <p>During my time in San Francisco, I worked on the Apple Vision Pro.</p>
                     </div>
                 </div>
-        
+            
                 <!-- XAI Research Paper Card -->
                 <div class="card">
-                    <div class="card-image" style="background-image: url('src/test1.png');"></div>
+                    <div class="card-image" style="background-image: url('src/project2.png');"></div>
                     <div class="card-category">Research · AI</div>
                     <div class="card-title">XAI Research Paper</div>
                     <div class="card-content">
-                        <p>I wrote a research paper about the comparison of White and Black-Box methods, two essential
-                            Explainable Artificial Intelligence (XAI) approaches.</p>
+                        <p>I wrote a research paper about the comparison of White and Black-Box methods, two essential Explainable
+                            Artificial Intelligence (XAI) approaches.</p>
                     </div>
                 </div>
-        
+            
                 <!-- NanoGPT Card -->
                 <div class="card">
-                    <div class="card-image" style="background-image: url('src/test1.png');"></div>
+                    <div class="card-image" style="background-image: url('src/project3.png');"></div>
                     <div class="card-category">Project · NLP</div>
                     <div class="card-title">NanoGPT</div>
                     <div class="card-content">
@@ -98,27 +97,89 @@
                             transformers.</p>
                     </div>
                 </div>
-        
-        
-                <!-- Brain Tumor Classifier -->
+            
+                <!-- Brain Tumor Classifier Card -->
                 <div class="card">
-                    <div class="card-image" style="background-image: url('src/test1.png');"></div>
-                    <div class="card-category">Project · NLP</div>
+                    <div class="card-image" style="background-image: url('src/project4.png');"></div>
+                    <div class="card-category">Project · AI</div>
                     <div class="card-title">Brain Tumor Classifier</div>
                     <div class="card-content">
-                        <p>I rebuilt Andrej Karpathy's NanoGPT to understand more about Large Language Models (LLMs) and
-                            transformers.</p>
+                        <p>I built a Brain Tumor Classifier using Deep Convolutional Neural Networks (CNNs) to classify brain tumors
+                            on MRI scans, achieving high accuracy with transfer learning and visualized results with GradCAM.</p>
                     </div>
                 </div>
-        
-                <!-- Brain Tumor Classifier -->
+            
+                <!-- Back Prop from Scratch Card -->
                 <div class="card">
-                    <div class="card-image" style="background-image: url('src/test1.png');"></div>
-                    <div class="card-category">Project · NLP</div>
-                    <div class="card-title">Brain Tumor Classifier</div>
+                    <div class="card-image" style="background-image: url('src/project5.png');"></div>
+                    <div class="card-category">Project · AI</div>
+                    <div class="card-title">Back Prop from Scratch</div>
                     <div class="card-content">
-                        <p>I rebuilt Andrej Karpathy's NanoGPT to understand more about Large Language Models (LLMs) and
-                            transformers.</p>
+                        <p>I implemented the Backpropagation Algorithm from scratch to understand how neural networks actually
+                            learn.</p>
+                    </div>
+                </div>
+            
+                <!-- GradCAM Card -->
+                <div class="card">
+                    <div class="card-image" style="background-image: url('src/project6.png');"></div>
+                    <div class="card-category">Project · AI</div>
+                    <div class="card-title">GradCAM on MNIST</div>
+                    <div class="card-content">
+                        <p>I trained a neural network on the MNIST Digit Recognition Problem and applied GradCAM to visualize
+                            influential features for the model's decision.</p>
+                    </div>
+                </div>
+            
+                <!-- Hands-on ML Notebooks Card -->
+                <div class="card">
+                    <div class="card-image" style="background-image: url('src/project7.png');"></div>
+                    <div class="card-category">Project · AI</div>
+                    <div class="card-title">Hands-on ML Notebooks</div>
+                    <div class="card-content">
+                        <p>I created notebooks based on the Hands-on ML book to deepen my understanding of machine learning
+                            concepts.</p>
+                    </div>
+                </div>
+            
+                <!-- Reinforcement Learning Card -->
+                <div class="card">
+                    <div class="card-image" style="background-image: url('src/project2.png');"></div>
+                    <div class="card-category">Project · RL</div>
+                    <div class="card-title">Lunar Lander Agent</div>
+                    <div class="card-content">
+                        <p>I built a Reinforcement Learning (RL) Agent to land the Lunar Lander using Gymnasium API and Stable
+                            Baselines3, implementing the DQN algorithm.</p>
+                    </div>
+                </div>
+            
+                <!-- 2D Platformer Game Card -->
+                <div class="card">
+                    <div class="card-image" style="background-image: url('src/projekt11.png');"></div>
+                    <div class="card-category">Project · Game Development</div>
+                    <div class="card-title">2D Platformer Game</div>
+                    <div class="card-content">
+                        <p>I built a 2D Platformer game using Pygame.</p>
+                    </div>
+                </div>
+            
+                <!-- Strategy Game Card -->
+                <div class="card">
+                    <div class="card-image" style="background-image: url('src/project11.png');"></div>
+                    <div class="card-category">Project · Game Development</div>
+                    <div class="card-title">Strategy Game</div>
+                    <div class="card-content">
+                        <p>I developed a strategy game with a team of four people using Maven.</p>
+                    </div>
+                </div>
+            
+                <!-- Game Theory Project Card -->
+                <div class="card">
+                    <div class="card-image" style="background-image: url('src/project10.png');"></div>
+                    <div class="card-category">Project · Game Theory</div>
+                    <div class="card-title">Game Theory: Prisoner's Dilemma</div>
+                    <div class="card-content">
+                        <p>I did a project on the Prisoner's Dilemma to analyze which strategies work best in game theory.</p>
                     </div>
                 </div>
             </div>
@@ -126,116 +187,32 @@
             
             
             
+        <h2>Interesting</h2>
+        <p>The following is a collection of technical sources that I've found interesting and I would consider worth reading.</p>
+        <ul class="interesting-links">
+            <li><a href="https://www.kaggle.com/code/soniadsilva/ai-at-the-cutting-edge-of-medical-imaging">2023 Kaggle AI
+                    Report - AI at the cutting edge of Medical Imaging</a></li>
+            <li><a href="https://www.kaggle.com/code/emirhanbilgic/ai-ethics-we-are-about-to-be-late">2023 Kaggle AI Report - AI
+                    Ethics, We Are About to Be Late</a></li>
+            <li><a href="https://www.kaggle.com/code/trushk/2023-kaggle-ai-report-generative-ai#intro">2023 Kaggle AI Report -
+                    Generative AI</a></li>
+            <li><a href="https://www.kaggle.com/code/antongc/developments-in-ai-and-ethics-in-the-past-2-years">2023 Kaggle AI
+                    Report - Developments in AI and Ethics in the Past 2 Years</a></li>
+            <li><a href="https://www.kaggle.com/code/radbear/advances-in-ai-vision-models-in-the-last-two-years">2023 Kaggle AI
+                    Report - Advances in AI Vision Models in the Last Two Years</a></li>
+            <li><a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2020.0363">Artificial intelligence explainability:
+                    the technical and ethical dimensions</a></li>
+            <li><a href="https://paperswithcode.com/methods/category/convolutional-neural-networks">List of existing CNN
+                    models</a></li>
+        </ul>
             
-            
-            <ul>
-
-               
-                
-                <li>
-                    <a href="paper-tombackert.pdf" target="_blank" class="project-title">XAI Research Paper: </a>
-                    I wrote a research paper about the comparision of White and Black-Box methodes, two essential Explainable Artificial
-                    Intelligence (XAI) approaches.
-                </li>
-
-                <li>
-                    <a href="https://github.com/tombackert/nanoGPT" class="project-title">NanoGPT:</a>
-                    I rebuilt Andrej Karpathy's NanoGPT to understand more about Large Language Models (LLMs) and the idea of <a
-                        href="https://arxiv.org/abs/1706.03762">transformers</a>. It was trained on the Tiny Shakesspear dataset and was
-                    able to produce reasonable shakesspear
-                    language.
-                </li>
-
-                <li> 
-                    <a href="https://github.com/tombackert/ml-stuff/blob/main/Brain_tumor_MRI_Accuracy_99_and_Grad_CAM.ipynb" class="project-title">Brain Tumor Classifier</a>:
-                    I built a Brain Tumor Classifier using <a href="https://arxiv.org/pdf/1511.08458.pdf">Deep Convolutional Neural Networks</a> (CNNs) to <a href="https://www.mdpi.com/2079-9292/12/4/955">classify brain tumors on MRI Scans</a>.
-                    Keras Xception was used as a base model with pretrained ImageNet weights.
-            
-                    The base model was then finetuned on brain MRI scans via <a href="https://arxiv.org/pdf/1911.02685.pdf">Transfer Learning</a> reaching high accuracy of 99% on unseen data.
-                    
-                    In the end, <a href="https://arxiv.org/abs/1610.02391">GradCAM</a> was applied to visualize the models decision and ultimatly the tumor on the MRI scans.
-                    
-                    <ul>                                            
-                        <li>
-                            Resources:
-                            <a href="https://www.tensorflow.org/">Tensorflow, </a>
-                            <a href="https://www.tensorflow.org/api_docs/python/tf/keras/applications/Xception">Keras Xception, </a>
-                            <a href="https://arxiv.org/abs/1610.02357">Xception paper, </a>
-                            <a href="https://www.image-net.org/">ImageNet, </a>
-                            <a href="https://arxiv.org/abs/1610.02391">GradCAM</a>
-                            
-                        </li>
-                    </ul>
-                </li>
-                    
-                <li>
-                    <a href="https://github.com/tombackert/ml-stuff/blob/main/back_prop_from_scratch.ipynb" class="project-title">Back Prop from scratch:</a>
-                    I implemented the Backpropagation Algorithm from scratch to understand how neural networks actually learn.
-                </li>
-
-                <li>
-                    <a href="https://github.com/tombackert/ml-stuff/blob/main/mnist_grad_cam.ipynb" class="project-title">GradCAM</a>:
-                    I trained a neural network on the classic <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST Digit Recognition Problem</a> and applied <a href="https://arxiv.org/abs/1610.02391">GradCAM</a> to visualize what features were most influencial for the models decision.
-                </li>
-
-                <li>
-                    <a href="https://github.com/tombackert/handson-ml" class="project-title">Handson-ml:</a> 
-                    I have some notebooks on the Handson ML book.
-                </li>
-
-                <li>
-                    <a href="https://github.com/tombackert/rl-stuff/blob/main/first-notebook-on-reinforcement-learning.ipynb" class="project-title">Reinforment Learning: </a>
-                        I build an <a href="https://spinningup.openai.com/en/latest/spinningup/keypapers.html">Reinforment Learning</a> (RL) Agent who can land the Lunar Lander. I used the <a href="https://gymnasium.farama.org/">Gymnasium</a> API and <a href="https://stable-baselines3.readthedocs.io/en/master/#">Stable Baselines3</a> for implementation of the <a href="https://www.nature.com/articles/nature14236">DQN-Algorithm</a>.
-                </li>
-                
-                <li>
-                    <a href="https://github.com/tombackert/ninja-game" class="project-title">2D Platformer Game: </a>
-                    I built a 2D Platformer game using Pygame. 
-                </li>
-
-                <li>
-                    <a href="https://github.com/tombackert/Undead-Power-Struggle" class="project-title">Strategy Game:</a>
-                    I built a stratedy game with a team of 4 people using Maven.
-                </li>
-
-                <li>
-                    <a href="https://github.com/tombackert/game-theory" class="project-title">Game Theory:</a>
-                    I did a project on the Prisoner's Dilemma to understand which strategies actually work best.
-                </li>
-
-            </ul>
-        
-
-        <h2>Interesting Links</h2>
-        The following are a collection of technical links that I've found interesting.
-            <ul>
-                <li>
-                    <a href="https://www.kaggle.com/code/soniadsilva/ai-at-the-cutting-edge-of-medical-imaging">2023 Kaggle AI Report - AI at the cutting edge of Medical Imaging</a>
-                </li>
-                <li>
-                    <a href="https://www.kaggle.com/code/emirhanbilgic/ai-ethics-we-are-about-to-be-late">2023 Kaggle AI Report - AI Ethics, We Are About to Be Late</a>
-                </li>
-                <li>
-                    <a href="https://www.kaggle.com/code/trushk/2023-kaggle-ai-report-generative-ai#intro">2023 Kaggle AI Report - Generative AI</a>
-                </li>
-                <li>
-                    <a href="https://www.kaggle.com/code/antongc/developments-in-ai-and-ethics-in-the-past-2-years">2023 Kaggle AI Report - Developments in AI and Ethics in the Past 2 Years</a>
-                </li>
-                <li>
-                    <a href="https://www.kaggle.com/code/radbear/advances-in-ai-vision-models-in-the-last-two-years">2023 Kaggle AI Report - Advances in AI Vision Models in the Last Two Years</a>
-                </li>
-                <li>
-                    <a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2020.0363">Artificial intelligence explainability: the technical and ethical dimensions</a>
-                </li>
-                <li>
-                    <a href="https://paperswithcode.com/methods/category/convolutional-neural-networks">List of existing CNN models</a>
-                </li>
-            </ul>
+           
         
         
-        <h2>Learning Resources</h2>
-            The following are a collection of learning resources that I've found helpful.
-            <ul>
+        
+        <h2>Resources</h2>
+            The following is a collection of resources that I've found helpful in understanding crucial concepts and which I'm now using on a daily basis.
+            <ul class="resource-list1">
                 <li>
                     <a href="https://www.coursera.org/specializations/machine-learning-introduction?">Andrew Ng's Machine Learning Specialization</a>
                 </li>
@@ -255,7 +232,7 @@
                     <a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Berkley's Deep RL Bootcamp</a>
                 </li>
             </ul>
-                
+
 
     </main>
 
