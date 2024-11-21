@@ -167,7 +167,6 @@ body.light-mode .navbar-title {
 
 /* INTERESTS */
 
-
 .interests-card {
     position: relative;
     width: 100%;
@@ -181,7 +180,6 @@ body.light-mode .navbar-title {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 10vw;
-    
 }
 
 .interests-card-image {
@@ -192,29 +190,34 @@ body.light-mode .navbar-title {
     height: 100%;
     background-size: cover;
     background-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* Zoom-Effekt beim Hover */
+.interests-card:hover .interests-card-image {
+    transform: scale(1.1);
 }
 
 .name {
+    position: relative;
+    z-index: 1;
     text-align: center;
-    padding-top: 18vw;
+    padding-top: 8vw;
     font-size: 3em;
     color: #fff;
 }
 
-
 .interests-card-content {
     position: relative;
-    padding-top: 0vw;
+    z-index: 1;
     color: #fff;
     text-align: center;
-    bottom: 10px;
     font-size: 1em;
     box-sizing: border-box;
     white-space: normal;
     word-wrap: break-word;
     overflow: hidden;
-    padding: 10vw;
-    padding-top: 0vw;
+    padding: 0 10vw;
     max-width: 60vw; 
     margin: 0 auto;
 }
@@ -317,17 +320,19 @@ body.light-mode .navbar-title {
   opacity: 0;
   transition: opacity 0.3s ease;
   padding: 20px;
-  padding-top: 12vw;
+  padding-top: 5vw;
   text-align: left;
   font-size: 1em;
   box-sizing: border-box;
   white-space: normal;
   word-break: break-word;
   overflow: hidden;
+  line-height: 1.4; 
 }
 
 .card:hover .card-content {
   opacity: 1;
+  text-decoration: none;
 }
 
 
