@@ -238,7 +238,7 @@ body.light-mode .navbar-title {
 .scroll-container {
     position: relative;
     width: 100vw; 
-    margin-left: 50%;
+    /*margin-left: 50%;*/
     overflow-x: scroll;
     white-space: nowrap;
     scroll-behavior: smooth;
