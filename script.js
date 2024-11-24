@@ -70,3 +70,9 @@ container.addEventListener('wheel', (e) => {
         left: e.deltaY < 0 ? -100 : 100
     });
 });
+
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('active');
+  });
+});

@@ -232,13 +232,22 @@ body.light-mode .navbar-title {
     opacity: 1;
 }
 
+@media (max-width: 800px) {
+  .interests-card .name {
+    font-size: 2em;
+  }
+
+  .interests-card .card-content {
+    padding-top: 15%; 
+  }
+}
+
 /* CONTENT */
 
 
 .scroll-container {
     position: relative;
-    width: 100vw; 
-    /*margin-left: 50%;*/
+    width: 100vw;
     overflow-x: scroll;
     white-space: nowrap;
     scroll-behavior: smooth;
@@ -289,8 +298,16 @@ body.light-mode .navbar-title {
     transition: transform 0.3s ease;
 }
 
+.card:hover .card-image,
 .card:hover .card-image {
     transform: scale(1.1);
+}
+
+.card:focus .card-content,
+.card:hover .card-content,
+.card.active .card-content {
+  opacity: 1;
+  text-decoration: none;
 }
 
 /* Floating Title and Category */
@@ -335,11 +352,6 @@ body.light-mode .navbar-title {
   word-break: break-word;
   overflow: hidden;
   line-height: 1.4; 
-}
-
-.card:hover .card-content {
-  opacity: 1;
-  text-decoration: none;
 }
 
 
@@ -476,15 +488,14 @@ body.light-mode .footer-bottom {
 /* Media Queries for Responsive Design */
 @media (max-width: 800px) {
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
+  .footer-section {
+    text-align: left;
   }
 }
+
 
 /* Background Element */
 .bg-primary-landing {
