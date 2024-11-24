@@ -489,8 +489,8 @@ body.light-mode .footer-bottom {
 /* Background Element */
 .bg-primary-landing {
   background-color: #0000ff;
-  margin-left: -20%;
-  margin-right: -20%;
+  margin-left: 0%;
+  margin-right: 0%;
   height: 1px;
 }
 
