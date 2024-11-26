@@ -216,6 +216,11 @@ body.light-mode .navbar-title {
     transform: scale(1.1);
 }
 
+.interests-card.active .card-content {
+    opacity: 1;
+}
+
+
 .interests-card .name {
     position: absolute;
     width: 100%;
@@ -238,12 +243,20 @@ body.light-mode .navbar-title {
     opacity: 0;
     transition: opacity 0.3s ease;
     padding: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .interests-card:hover .card-content {
     opacity: 1;
 }
+
+@media screen and (max-width: 400px) {
+  .interests-card .name {
+    font-size: 3em;
+  }
+  
+}
+
 
 /* CONTENT */
 

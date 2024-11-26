@@ -63,7 +63,6 @@ function changeColor() {
 
 const container = document.querySelector('.scroll-container');
 
-// Verhindert, dass der Container vertikal scrollt
 container.addEventListener('wheel', (e) => {
     e.preventDefault();
     container.scrollBy({
@@ -74,5 +73,23 @@ container.addEventListener('wheel', (e) => {
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', () => {
     card.classList.toggle('active');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.interests-card');
+
+  cards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      const isActive = card.classList.contains('active');
+
+      cards.forEach(function(c) {
+        c.classList.remove('active');
+      });
+
+      if (!isActive) {
+        card.classList.add('active');
+      }
+    });
   });
 });
