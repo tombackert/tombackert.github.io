@@ -337,13 +337,13 @@ body.light-mode .navbar-title {
 }
 
 .card-category {
-    top: 10px;
+    bottom: 10px;
     left: 10px;
     font-size: 0.9em;
 }
 
 .card-title {
-    bottom: 10px;
+    top: 10px;
     left: 10px;
     font-size: 1.1em;
 }
