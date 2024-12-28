@@ -182,6 +182,7 @@ body.light-mode .navbar-title {
 
 
 
+
 /* INTERESTS */
 
 .interests-card {
@@ -503,13 +504,19 @@ body.light-mode .footer-bottom {
 }
 
 /* Media Queries for Responsive Design */
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .footer-content {
     grid-template-columns: 1fr 1fr;
   }
 
   .footer-section {
     text-align: left;
+  }
+
+  .footer-bottom {
+    .social-media {
+        gap: 5px;
+    }
   }
 }
 
@@ -534,3 +541,28 @@ body.light-mode .footer-bottom {
 #theme-icon img:hover {
     opacity: 1;
 }
+
+
+@media screen and (max-width: 480px) {
+  /* Karten kleiner machen */
+  .card {
+    width: 250px;   /* z.B. statt 350px */
+    height: 350px; /* z.B. statt 470px */
+  }
+
+  /* Footer-Bereich enger machen */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* leichter Abstand zwischen Copyright und Social Icons */
+    padding-top: 10px; /* ggf. verkleinern oder entfernen */
+  }
+
+  /* Social Media Icons verkleinern und zusammenrücken */
+  .social-media a img {
+    width: 25px; /* statt 25px */
+    height: 25px;
+    margin-right: 5px; /* statt 15px */
+  }
+}
+
