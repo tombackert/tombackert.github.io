@@ -38,6 +38,14 @@ function toggleTheme() {
     iconElement.src = darkMode ? "icons/light-mode.png" : "icons/dark-mode.png";
 }
 
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById("mobileMenu");
+  const screenOverlay = document.getElementById("screenOverlay");
+
+  mobileMenu.classList.toggle("show");
+  screenOverlay.classList.toggle("show");
+}
+
 function changeColor() {
     const colors = [
         '#07f41f', '#FF0000', '#e90bd3', '#0000f', '#0727f4', '#a72608', '#7F0799', '#e03616',

@@ -81,7 +81,7 @@ body.light-mode a:hover {
     color: #fff;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1002;
     padding-top: 1%;
     transition: top 1s ease, background-color 0.3s ease;
     backdrop-filter: blur(10px);
@@ -110,9 +110,9 @@ body.light-mode .navbar-title {
 .navbar-content {
   font-size: 0.8em;
   text-align: center;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-areas: "left center right";
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;         
   gap: 20px;
 }
 
@@ -138,10 +138,85 @@ body.light-mode .navbar-title {
 .topnav-right {
   grid-area: right;
   text-align: right;
+  font-weight: bold;
 }
 
 
+/* --------------------------------- */
+/* Navbar                            */
+/* --------------------------------- */
 
+.topnav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.mobile-menu, .screen-overlay {
+  display: none;
+}
+
+.mobile-menu {
+  position: fixed;  
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px); 
+  background: #000; /* schwarz */
+  color: #fff;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1001;
+  display: none;
+}
+
+.mobile-menu.show {
+  display: flex;/
+}
+
+/* Overlay */
+.screen-overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background: rgba(0,0,0,1);
+  z-index: 1000; 
+}
+.screen-overlay.show {
+  display: block;
+}
+
+.burger {
+  display: none; 
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .topnav-center {
+    display: none;  
+  }
+  .burger {
+    display: inline-block; 
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .burger {
+    display: none;  
+  }
+  .mobile-menu {
+    display: none !important;
+  }
+  .screen-overlay {
+    display: none !important;
+  }
+}
 
 /* CONTACT */
 
@@ -349,6 +424,19 @@ body.light-mode .navbar-title {
     font-size: 1.1em;
 }
 
+@media screen and (max-width: 400px) {
+  .card-title {
+    top: 5px;
+    left: 5px;
+  }
+  
+  .card-category {
+    bottom: 5px;
+    left: 5px;
+  }
+  
+}
+
 /* Content Reveal on Hover */
 .card-content {
   position: absolute;
@@ -544,25 +632,22 @@ body.light-mode .footer-bottom {
 
 
 @media screen and (max-width: 480px) {
-  /* Karten kleiner machen */
   .card {
-    width: 250px;   /* z.B. statt 350px */
-    height: 350px; /* z.B. statt 470px */
+    width: 250px;   /* 350px */
+    height: 300px; /* 470px */
   }
 
-  /* Footer-Bereich enger machen */
   .footer-bottom {
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* leichter Abstand zwischen Copyright und Social Icons */
-    padding-top: 10px; /* ggf. verkleinern oder entfernen */
+    gap: 10px; 
+    padding-top: 10px;
   }
 
-  /* Social Media Icons verkleinern und zusammenrücken */
   .social-media a img {
-    width: 25px; /* statt 25px */
+    width: 25px; /* 25px */
     height: 25px;
-    margin-right: 5px; /* statt 15px */
+    margin-right: 5px; /* 15px */
   }
 }
 

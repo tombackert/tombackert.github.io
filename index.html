@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -16,22 +16,32 @@
             <div class="topnav-left">
                 <a href="#" class="navbar-title">TB</a>
             </div>
-            
+
             <div class="topnav-center">
                 <a href="#">Research</a>
                 <a href="#">Projects</a>
                 <a href="#">Blog</a>
                 <a href="#">Dev</a>
             </div>
-            
+
             <div class="topnav-right">
+
+                <div class="burger" onclick="toggleMobileMenu()">Menu</div>
+
                 <a href="#" onclick="toggleTheme()" id="theme-icon">
                     <img id="theme-icon-img" src="icons/light-mode-icon.png" alt="Toggle Theme">
                 </a>
             </div>
-
         </div>
-    
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Research</a>
+            <a href="#">Projects</a>
+            <a href="#">Blog</a>
+            <a href="#">Dev</a>
+        </div>
+
+        <div class="screen-overlay" id="screenOverlay" onclick="toggleMobileMenu()"></div>
     </nav>
     
     <main class="main">
@@ -230,7 +240,7 @@
                         <a href="hackathons/uss-hornet-hackathon.html">
                             <div class="card-image hackathon" style="background-image: url('src/project1.png');"></div>
                             <div class="card-category">Hackathon</div>
-                            <div class="card-title">USS Hornet Defense Tech Hackathon</div>
+                            <div class="card-title">USS Hornet Defense Tech</div>
                             <div class="card-content">
                                 <p>Project: Development of a drone pilot detection system</p>
                             </div>
