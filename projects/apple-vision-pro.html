@@ -6,15 +6,47 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>TB - Apple Vision Pro Dev</title>
     <link rel="stylesheet" href="../styles.css" />
+    <script src="../script.js"></script>
 </head>
 
 <body>
-    <h1>Apple Vision Pro Dev</h1>
-    <p>
-        During my time in San Francisco, I worked on the Apple Vision Pro. Coming soon...
-    </p>
-    
-    <p><a href="../index.html">back</a></p>
+    <nav class="topnav" id="navbar">
+        <div class="navbar-content">
+            <div class="topnav-left">
+                <a href="../index.html" class="navbar-title">TB</a>
+            </div>
+
+            <div class="topnav-center">
+                <a href="../subpages/projects.html">Research</a>
+                <a href="../subpages/projects.html">Projects</a>
+                <a href="../subpages/blog.html">Blog</a>
+                <a href="../subpages/dev.html">Dev</a>
+            </div>
+
+            <div class="topnav-right">
+                <div class="burger" onclick="toggleMobileMenu()">Menu</div>
+                <a href="#" onclick="toggleTheme()" id="theme-icon">
+                    <img id="theme-icon-img" src="../icons/light-mode.png" alt="Toggle Theme">
+                </a>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../subpages/projects.html">Research</a>
+            <a href="../subpages/projects.html">Projects</a>
+            <a href="../subpages/blog.html">Blog</a>
+            <a href="../subpages/dev.html">Dev</a>
+        </div>
+
+        <div class="screen-overlay" id="screenOverlay" onclick="toggleMobileMenu()"></div>
+    </nav>
+
+    <main class="main">
+        <h1>Apple Vision Pro Dev</h1>
+        <p>
+            During my time in San Francisco, I worked on the Apple Vision Pro. Coming soon...
+        </p>
+    </main>
 </body>
 
 </html>

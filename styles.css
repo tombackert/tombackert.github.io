@@ -177,6 +177,11 @@ body.light-mode .navbar-title {
   display: flex;/
 }
 
+body.light-mode .mobile-menu {
+  background: #fff;
+  color: #000;
+}
+
 /* Overlay */
 .screen-overlay {
   position: fixed;
@@ -189,6 +194,18 @@ body.light-mode .navbar-title {
 }
 .screen-overlay.show {
   display: block;
+}
+
+body.light-mode .screen-overlay {
+  background: rgba(255,255,255,1);
+}
+
+body.light-mode .mobile-menu a {
+  color: #000;
+}
+
+body.light-mode .mobile-menu a:hover {
+  color: var(--link-hover-color);
 }
 
 .burger {
