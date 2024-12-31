@@ -2,40 +2,69 @@ let currentIndex = 0;
 let darkMode = true; // Default to dark mode
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Theme Handling
+  darkMode = localStorage.getItem('darkMode') !== 'false';
+  updateTheme();
+  
+  changeColor();
 
-    changeColor();
+  // Navbar Handling
+  const navbar = document.getElementById("navbar");
+  const hideThreshold = 200;
 
-    const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+      if (window.scrollY > hideThreshold) {
+          navbar.classList.add("hide-navbar");
+      } else {
+          navbar.classList.remove("hide-navbar");
+      }
+  });
 
-    // Set threshold in pixels for when to hide the navbar
-    const hideThreshold = 200; // Adjust as needed
+  // Cards Handling
+  const cards = document.querySelectorAll('.interests-card');
+  cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+          const isActive = card.classList.contains('active');
+          cards.forEach(function(c) {
+              c.classList.remove('active');
+          });
+          if (!isActive) {
+              card.classList.add('active');
+          }
+      });
+  });
 
-    // Scroll event listener
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > hideThreshold) {
-            navbar.classList.add("hide-navbar"); // Hide navbar after threshold
-        } else {
-            navbar.classList.remove("hide-navbar"); // Show navbar when above threshold
-        }
-    });
+  // Container Scroll Handling
 
-    // Initialize theme and icon
+  // Card Click Handling
+  const allCards = document.querySelectorAll('.card');
+  allCards.forEach(card => {
+      card.addEventListener('click', () => {
+          card.classList.toggle('active');
+      });
+  });
+});
+
+function updateTheme() {
     const iconElement = document.getElementById("theme-icon-img");
     if (darkMode) {
         document.body.classList.remove("light-mode");
-        iconElement.src = "icons/light-mode.png";
+        iconElement.src = getIconPath("light-mode.png");
     } else {
         document.body.classList.add("light-mode");
-        iconElement.src = "icons/dark-mode.png";
+        iconElement.src = getIconPath("dark-mode.png");
     }
-});
+}
+
+function getIconPath(iconName) {
+    const isSubPage = window.location.pathname.includes('subpages/');
+    return isSubPage ? `../icons/${iconName}` : `icons/${iconName}`;
+}
 
 function toggleTheme() {
     darkMode = !darkMode;
-    document.body.classList.toggle("light-mode", !darkMode);
-
-    const iconElement = document.getElementById("theme-icon-img");
-    iconElement.src = darkMode ? "icons/light-mode.png" : "icons/dark-mode.png";
+    localStorage.setItem('darkMode', darkMode);
+    updateTheme();
 }
 
 function toggleMobileMenu() {
@@ -81,23 +110,5 @@ container.addEventListener('wheel', (e) => {
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', () => {
     card.classList.toggle('active');
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  const cards = document.querySelectorAll('.interests-card');
-
-  cards.forEach(function(card) {
-    card.addEventListener('click', function() {
-      const isActive = card.classList.contains('active');
-
-      cards.forEach(function(c) {
-        c.classList.remove('active');
-      });
-
-      if (!isActive) {
-        card.classList.add('active');
-      }
-    });
   });
 });
