@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Navbar Handling
   const navbar = document.getElementById("navbar");
-  const hideThreshold = 200;
+  const hideThreshold = 2000;
 
   window.addEventListener("scroll", () => {
       if (window.scrollY > hideThreshold) {

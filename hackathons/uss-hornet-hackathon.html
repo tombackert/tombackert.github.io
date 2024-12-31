@@ -10,12 +10,43 @@
 </head>
 
 <body>
-    <h1>USS Hornet Defense Tech Hackathon</h1>
-    <p>
-        Project: Development of a drone pilot detection system.
-    </p>
+    <nav class="topnav" id="navbar">
+        <div class="navbar-content">
+            <div class="topnav-left">
+                <a href="../index.html" class="navbar-title">TB</a>
+            </div>
 
-    <p><a href="../index.html">back</a></p>
+            <div class="topnav-center">
+                <a href="../subpages/projects.html">Research</a>
+                <a href="../subpages/projects.html">Projects</a>
+                <a href="../subpages/blog.html">Blog</a>
+                <a href="../subpages/dev.html">Dev</a>
+            </div>
+
+            <div class="topnav-right">
+                <div class="burger" onclick="toggleMobileMenu()">Menu</div>
+                <a href="#" onclick="toggleTheme()" id="theme-icon">
+                    <img id="theme-icon-img" src="./icons/light-mode.png" alt="Toggle Theme">
+                </a>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../subpages/projects.html">Research</a>
+            <a href="../subpages/projects.html">Projects</a>
+            <a href="../subpages/blog.html">Blog</a>
+            <a href="../subpages/dev.html">Dev</a>
+        </div>
+
+        <div class="screen-overlay" id="screenOverlay" onclick="toggleMobileMenu()"></div>
+    </nav>
+
+    <main class="main">
+        <h1>USS Hornet Defense Tech Hackathon</h1>
+        <p>
+            Project: Development of a drone pilot detection system.
+        </p>
+    </main>
 </body>
 
 </html>
