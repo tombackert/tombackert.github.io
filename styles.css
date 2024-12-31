@@ -66,7 +66,7 @@ body.light-mode a:hover {
 @media screen and (max-width: 800px) {
   main {
     padding-left: 2vw;
-    padding-right: 2vw;
+    padding-right: 0vw;
   }
   
 }
@@ -263,7 +263,7 @@ body.light-mode .navbar-title {
     overflow-x: scroll;
     white-space: nowrap;
     scroll-behavior: smooth;
-    margin: -10vw; 
+    
     scrollbar-width: none;
     margin-bottom: 10vw;
     margin-top: 0vw;
@@ -282,8 +282,7 @@ body.light-mode .navbar-title {
 .card-container {
     display: inline-flex;
     gap: 20px;
-    padding-left: 10vw;
-    padding-right: 10vw;
+
 }
 
 .card {
@@ -555,8 +554,8 @@ body.light-mode .footer-bottom {
 
 @media screen and (max-width: 800px) {
   .card {
-    width: 250px;   /* 350px */
-    height: 300px; /* 470px */
+    width: 200px;   /* 350px */
+    height: 250px; /* 470px */
   }
 
   .footer-bottom {
@@ -570,6 +569,13 @@ body.light-mode .footer-bottom {
     width: 25px; /* 25px */
     height: 25px;
     margin-right: 5px; /* 15px */
+  }
+
+
+
+  .main {
+    padding-left: 1px;
+    padding-right: 1px;
   }
 }
 
