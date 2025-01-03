@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="eng">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>TB - World Schedule</title>
-    <link rel="stylesheet" href="../styles.css" />
-    <script src="../script.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>TB - World Schedule</title>
+        <link rel="stylesheet" href="../styles.css" />
+        <script src="../script.js"></script>
+    </head>
 
-<body>
-    <nav class="topnav" id="navbar">
-        <div class="navbar-content">
-            <div class="topnav-left">
-                <a href="../index.html" class="navbar-title">TB</a>
+    <body>
+        <nav class="topnav" id="navbar">
+            <div class="navbar-content">
+                <div class="topnav-left">
+                    <a href="../index.html" class="navbar-title">TB</a>
+                </div>
+
+                <div class="topnav-center">
+                    <a href="../subpages/research.html">Research</a>
+                    <a href="../subpages/projects.html">Projects</a>
+                    <a href="../subpages/blog.html">Blog</a>
+                    <a href="../subpages/dev.html">Dev</a>
+                </div>
+
+                <div class="topnav-right">
+                    <div class="burger" onclick="toggleMobileMenu()">Menu</div>
+                    <a href="#" onclick="toggleTheme()" id="theme-icon">
+                        <img id="theme-icon-img" src="../icons/light-mode.png" alt="Toggle Theme">
+                    </a>
+                </div>
             </div>
 
-            <div class="topnav-center">
+            <div class="mobile-menu" id="mobileMenu">
                 <a href="../subpages/research.html">Research</a>
                 <a href="../subpages/projects.html">Projects</a>
                 <a href="../subpages/blog.html">Blog</a>
                 <a href="../subpages/dev.html">Dev</a>
             </div>
 
-            <div class="topnav-right">
-                <div class="burger" onclick="toggleMobileMenu()">Menu</div>
-                <a href="#" onclick="toggleTheme()" id="theme-icon">
-                    <img id="theme-icon-img" src="../icons/light-mode.png" alt="Toggle Theme">
-                </a>
-            </div>
-        </div>
+            <div class="screen-overlay" id="screenOverlay" onclick="toggleMobileMenu()"></div>
+        </nav>
 
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="../subpages/research.html">Research</a>
-            <a href="../subpages/projects.html">Projects</a>
-            <a href="../subpages/blog.html">Blog</a>
-            <a href="../subpages/dev.html">Dev</a>
-        </div>
+        <main class="main">
+            <h1>World Schedule</h1>
+            <p>During my time in San Francisco, we created World Schedule, a meeting planer that connects people over
+                different timezones. It immediatly played out to be extremely useful. Right now we are working on
+                scaling the
+                project. </p>
 
-        <div class="screen-overlay" id="screenOverlay" onclick="toggleMobileMenu()"></div>
-    </nav>
-
-    <main class="main">
-        <h1>World Schedule</h1>
-        <p>During my time in San Francisco, we created World Schedule, a meeting planer that connects people over
-            different timezones. It immediatly played out to be extremely useful. Right now we are working on scaling the
-            project. </p>
-
-        <p> Checkout  --<a href="https://world-schedule.com">World Schedule</a>--
-        </p>
-    </main>
-</body>
+            <p> Checkout --<a href="https://world-schedule.com">World Schedule</a>--
+            </p>
+        </main>
+    </body>
 
 </html>
