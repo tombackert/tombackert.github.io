@@ -276,12 +276,14 @@ body.light-mode .mobile-menu a:hover {
 
 .scroll-container {
     position: relative;
-    width: 100vw;
+    width: 90vw;
     overflow-x: scroll;
     white-space: nowrap;
     scroll-behavior: smooth;
     
     scrollbar-width: none;
+    padding-left: 20vw;
+    margin-left: -20vw;
     margin-bottom: 10vw;
     margin-top: 0vw;
 }

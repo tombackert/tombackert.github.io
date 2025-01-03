@@ -56,9 +56,15 @@ function updateTheme() {
     }
 }
 
+// FIX: Pfade sowohl für subpages/ als auch für projects/ korrigieren
 function getIconPath(iconName) {
-    const isSubPage = window.location.pathname.includes('subpages/');
-    return isSubPage ? `../icons/${iconName}` : `icons/${iconName}`;
+    const path = window.location.pathname;
+    // Wenn die Seite in /subpages/ oder in /projects/ liegt, nimm ../icons/...
+    if (path.includes('subpages/') || path.includes('projects/')) {
+        return `../icons/${iconName}`;
+    } else {
+        return `icons/${iconName}`;
+    }
 }
 
 function toggleTheme() {
@@ -97,9 +103,7 @@ function changeColor() {
     console.log(`Current Illusion Color: ${newColor}`);
 }
 
-
 const container = document.querySelector('.scroll-container');
-
 container.addEventListener('wheel', (e) => {
     e.preventDefault();
     container.scrollBy({
