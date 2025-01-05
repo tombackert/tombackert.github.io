@@ -301,12 +301,10 @@ body.light-mode .mobile-menu a:hover {
 @media screen and (max-width: 800px) {
   .contact-icons {
     gap: 5px;
+    margin-bottom: 5vw;
   }
-}
-@media screen and (max-width: 800px) {
-  .contact-icons {
-    gap: 5px;
-  }
+
+  
 }
 
 
