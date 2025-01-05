@@ -47,12 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function updateTheme() {
     const iconElement = document.getElementById("theme-icon-img");
+    const burgerElement = document.querySelector(".burger");
+
     if (darkMode) {
         document.body.classList.remove("light-mode");
         iconElement.src = getIconPath("light-mode.png");
+        burgerElement.innerHTML = `<img src="${getIconPath('menu-light.png')}" alt="Menu">`;
     } else {
         document.body.classList.add("light-mode");
         iconElement.src = getIconPath("dark-mode.png");
+        burgerElement.innerHTML = `<img src="${getIconPath('menu-dark.png')}" alt="Menu">`;
     }
 }
 

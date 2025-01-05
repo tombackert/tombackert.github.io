@@ -71,9 +71,9 @@ body.light-mode a:hover {
   
 }
 
-
-
-/* NAVBAR */
+/* --------------------------------- */
+/* Navbar                            */
+/* --------------------------------- */
 .topnav {
     padding-left: 10vw;
     padding-right: 10vw;
@@ -95,6 +95,7 @@ body.light-mode .topnav {
     font-size: 1.4em;
     color: #fff; 
     text-decoration: none;
+    z-index: 1002;
 }
 
 body.light-mode .navbar-title {
@@ -114,12 +115,14 @@ body.light-mode .navbar-title {
   justify-content: space-between; 
   align-items: center;         
   gap: 20px;
+  z-index: 1002;
 }
 
 .topnav-left {
   grid-area: left;
   text-align: left;
   font-weight: bold;
+  z-index: 1002;
 }
 
 .topnav-center {
@@ -127,6 +130,7 @@ body.light-mode .navbar-title {
   text-align: center;
   gap: 30px;
   padding-top: 5px;
+  z-index: 1002;
 }
 
 .topnav-center a {
@@ -135,23 +139,35 @@ body.light-mode .navbar-title {
   transition: color 0.3s ease;
 }
 
+
+
+
 .topnav-right {
   grid-area: right;
   text-align: right;
   font-weight: bold;
-}
-
-
-/* --------------------------------- */
-/* Navbar                            */
-/* --------------------------------- */
-
-.topnav-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 15px;
+  z-index: 1002;
 }
+
+
+/* Overlay */
+.screen-overlay {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  height: 100vh;
+  background: rgba(0,0,0,1);
+  z-index: 1000; 
+}
+.screen-overlay.show {
+  display: block;
+}
+
 
 .mobile-menu, .screen-overlay {
   display: none;
@@ -182,19 +198,7 @@ body.light-mode .mobile-menu {
   color: #000;
 }
 
-/* Overlay */
-.screen-overlay {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - 60px);
-  background: rgba(0,0,0,1);
-  z-index: 1000; 
-}
-.screen-overlay.show {
-  display: block;
-}
+
 
 body.light-mode .screen-overlay {
   background: rgba(255,255,255,1);
@@ -212,6 +216,19 @@ body.light-mode .mobile-menu a:hover {
   display: none; 
   cursor: pointer;
   font-weight: bold;
+}
+
+
+.burger img {
+    width: 20px;  /* gleiche Größe wie das Light/Dark-Mode-Icon */
+    height: 20px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.burger img:hover {
+    opacity: 1;
 }
 
 @media screen and (max-width: 800px) {
