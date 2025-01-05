@@ -92,7 +92,8 @@ body.light-mode .topnav {
     color: #000;
 }
 .navbar-title {
-    font-size: 1.4em;
+    font-size: 24px;
+    font-weight: bold;
     color: #fff; 
     text-decoration: none;
 }
@@ -138,7 +139,6 @@ body.light-mode .navbar-title {
 .topnav-right {
   grid-area: right;
   text-align: right;
-  font-weight: bold;
 }
 
 
@@ -218,6 +218,12 @@ body.light-mode .mobile-menu a:hover {
   .topnav-center {
     display: none;  
   }
+
+  .topnav {
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+
   .burger {
     display: inline-block; 
   }
