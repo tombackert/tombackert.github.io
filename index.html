@@ -5,44 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TB's Home Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js"></script>
 </head>
 
 <div id="page">
 
-    <nav class="topnav" id="navbar">
-        <div class="navbar-content">
-            <div class="topnav-left">
-                <a href="#" class="navbar-title">TB</a>
-            </div>
-
-            <div class="topnav-center">
-                <a href="subpages/research.html">Research</a>
-                <a href="subpages/projects.html">Projects</a>
-                <a href="subpages/blog.html">Blog</a>
-                <a href="subpages/dev.html">Dev</a>
-            </div>
-
-            <div class="topnav-right">
-
-                <div class="burger" onclick="toggleMobileMenu()">Menu</div>
-
-                <a href="#" onclick="toggleTheme()" id="theme-icon">
-                    <img id="theme-icon-img" src="icons/light-mode.png" alt="Toggle Theme">
-                </a>
-            </div>
-        </div>
-
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="subpages/research.html">Research</a>
-            <a href="subpages/projects.html">Projects</a>
-            <a href="subpages/blog.html">Blog</a>
-            <a href="subpages/dev.html">Dev</a>
-        </div>
-
-        <div class="screen-overlay" id="screenOverlay" onclick="toggleMobileMenu()"></div>
-    </nav>
+    <div id="navbar-container"></div>
 
     <main class="main">
 
@@ -82,7 +51,7 @@
             <div class="card-container">
                 <!-- World Schedule Dev Card -->
                 <div class="card">
-                    <a href="projects/world-schedule.html">
+                    <a href="/subpages/projects/world-schedule.html">
                         <div class="card-image" style="background-image: url('src/ws.png');"></div>
                         <div class="card-category">Development</div>
                         <div class="card-title">World Schedule</div>
@@ -97,7 +66,7 @@
 
                 <!-- Apple Vision Pro Dev Card -->
                 <div class="card">
-                    <a href="projects/apple-vision-pro.html">
+                    <a href="/subpages/projects/apple-vision-pro.html">
                         <div class="card-image" style="background-image: url('src/test.png');"></div>
                         <div class="card-category">Development</div>
                         <div class="card-title">Apple Vision Pro Dev</div>
@@ -110,7 +79,7 @@
 
                 <!-- XAI Research Paper Card -->
                 <div class="card">
-                    <a href="projects/xai-paper.html">
+                    <a href="/subpages/projects/xai-paper.html">
                         <div class="card-image" style="background-image: url('src/project2.png');"></div>
                         <div class="card-category">Computer Vision, Research</div>
                         <div class="card-title">XAI Research Paper</div>
@@ -132,7 +101,7 @@
 
                 <!-- NanoGPT Card -->
                 <div class="card">
-                    <a href="projects/nano-gpt.html">
+                    <a href="/subpages/projects/nano-gpt.html">
                         <div class="card-image" style="background-image: url('src/project3.png');"></div>
                         <div class="card-category">NLP</div>
                         <div class="card-title">NanoGPT</div>
@@ -148,7 +117,7 @@
 
                 <!-- Brain Tumor Classifier Card -->
                 <div class="card">
-                    <a href="projects/brain-tumor-research.html">
+                    <a href="/subpages/projects/brain-tumor-research.html">
                         <div class="card-image" style="background-image: url('src/project4.png');"></div>
                         <div class="card-category">Computer Vision</div>
                         <div class="card-title">Brain Tumor Detection</div>
@@ -165,7 +134,7 @@
 
                 <!-- Back Prop from Scratch Card -->
                 <div class="card">
-                    <a href="projects/backprop.html">
+                    <a href="/subpages/projects/backprop.html">
                         <div class="card-image" style="background-image: url('src/project5.png');"></div>
                         <div class="card-category">ML</div>
                         <div class="card-title">Back Prop from Scratch</div>
@@ -179,7 +148,7 @@
 
                 <!-- GradCAM Card -->
                 <div class="card">
-                    <a href="projects/gradcam-mnist.html">
+                    <a href="/subpages/projects/gradcam-mnist.html">
                         <div class="card-image" style="background-image: url('src/project6.png');"></div>
                         <div class="card-category">Computer Vision</div>
                         <div class="card-title">GradCAM on MNIST</div>
@@ -193,7 +162,7 @@
 
                 <!-- Hands-on ML Notebooks Card -->
                 <div class="card">
-                    <a href="projects/hands-on-ml.html">
+                    <a href="/subpages/projects/hands-on-ml.html">
                         <div class="card-image" style="background-image: url('src/project7.png');"></div>
                         <div class="card-category">ML</div>
                         <div class="card-title">Hands-on ML Notebooks</div>
@@ -205,7 +174,7 @@
 
                 <!-- Reinforcement Learning Card -->
                 <div class="card">
-                    <a href="projects/luna-lander.html">
+                    <a href="/subpages/projects/luna-lander.html">
                         <div class="card-image" style="background-image: url('src/project2.png');"></div>
                         <div class="card-category">Reinforcement Learning</div>
                         <div class="card-title">Lunar Lander Agent</div>
@@ -219,7 +188,7 @@
 
                 <!-- 2D Platformer Game Card -->
                 <div class="card">
-                    <a href="projects/ninja-game.html">
+                    <a href="/subpages/projects/ninja-game.html">
                         <div class="card-image" style="background-image: url('src/projekt11.png');"></div>
                         <div class="card-category">Development</div>
                         <div class="card-title">2D Platformer Game</div>
@@ -231,7 +200,7 @@
 
                 <!-- Strategy Game Card -->
                 <div class="card">
-                    <a href="projects/strategy-game.html">
+                    <a href="/subpages/projects/strategy-game.html">
                         <div class="card-image" style="background-image: url('src/project11.png');"></div>
                         <div class="card-category">Development</div>
                         <div class="card-title">Strategy Game</div>
@@ -243,7 +212,7 @@
 
                 <!-- Game Theory Project Card -->
                 <div class="card">
-                    <a href="projects/game-theory-research.html">
+                    <a href="/subpages/projects/game-theory-research.html">
                         <div class="card-image" style="background-image: url('src/project10.png');"></div>
                         <div class="card-category">Game Theory, Research</div>
                         <div class="card-title">Prisoner's Dilemma</div>
@@ -266,7 +235,7 @@
                 <div class="card-container">
                     <!-- USS Hornet Defense Tech Hackathon Card -->
                     <div class="card">
-                        <a href="hackathons/uss-hornet-hackathon.html">
+                        <a href="/subpages/hackathons/uss-hornet-hackathon.html">
                             <div class="card-image hackathon" style="background-image: url('src/project1.png');"></div>
                             <div class="card-category">Hackathon, Defense</div>
                             <div class="card-title">US Navy</div>
@@ -286,118 +255,9 @@
 
     </main>
 
-    <footer class="footer">
+    <div id="footer-container"></div>
+    <div id="illusion-container"></div>
 
-        <div class="footer-content">
-            <!-- Project Categories -->
-
-            <div class="footer-section">
-                <p>Development</p>
-                <ul>
-                    <li><a href="">Apple Vision Pro</a></li>
-                    <li><a href="https://github.com/tombackert/ninja-game">2D Platformer Game</a></li>
-                    <li><a href="https://github.com/tombackert/Undead-Power-Struggle">Strategy Game</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <p>Computer Vision</p>
-                <ul>
-                    <li><a href="https://github.com/tombackert/ml-stuff/blob/main/mnist_grad_cam.ipynb">GradCAM</a></li>
-                    <li><a
-                            href="https://github.com/tombackert/ml-stuff/blob/main/Brain_tumor_MRI_Accuracy_99_and_Grad_CAM.ipynb">Brain
-                            Tumor Detection</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <p>Research</p>
-                <ul>
-                    <li><a href="/paper-tombackert.pdf">XAI</a></li>
-                    <li><a href="">Game Theory</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <p>Diverse</p>
-                <ul>
-                    <li><a
-                            href="https://github.com/tombackert/rl-stuff/blob/main/first-notebook-on-reinforcement-learning.ipynb">Lunar
-                            Lander</a></li>
-                    <li><a href="">Backprop</a></li>
-                    <li><a href="">Hands-on ML</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <p>NLP</p>
-                <ul>
-                    <li><a href="https://github.com/tombackert/nanoGPT">NanoGPT</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <p>Blog</p>
-                <ul>
-                    <li><a href="#">Latest Post</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Bottom Row: Copyright and Social Media -->
-        <div class="footer-bottom">
-            <div class="copyright">
-                Tom Backert &copy; 2024-2025
-            </div>
-            <div class="social-media">
-                <a href="https://github.com/tombackert" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/tombackert/" target="_blank"><img src="icons/linkedin.png"
-                        alt="LinkedIn"></a>
-                <a href="https://open.spotify.com/user/tom.backert" target="_blank"><img src="icons/spotify.png"
-                        alt="Spotify"></a>
-                <a href="https://discordapp.com/users/tom.backert" target="_blank"><img src="icons/discord.png"
-                        alt="Discord"></a>
-                <a href="https://instagram.com/tom18_08" target="_blank"><img src="icons/instagram.png"
-                        alt="Instagram"></a>
-                <a href="mailto:tom.backert@t-online.de"><img src="icons/mail.png" alt="Email"></a>
-                <a href="https://x.com/tb18_08"><img src="icons/twitter-3.png" alt="x.com"></a>
-            </div>
-        </div>
-    </footer>
-
-    <illusion>
-        <div class="bg-inverse-landing" onclick="changeColor()" aria-hidden="true">
-            <div>
-                <div class="bg-primary-landing" style="margin-top:23px;height:0px"></div>
-                <div class="bg-primary-landing" style="margin-top:22px;height:1px"></div>
-                <div class="bg-primary-landing" style="margin-top:21px;height:2px"></div>
-                <div class="bg-primary-landing" style="margin-top:20px;height:3px"></div>
-                <div class="bg-primary-landing" style="margin-top:19px;height:4px"></div>
-                <div class="bg-primary-landing" style="margin-top:18px;height:5px"></div>
-                <div class="bg-primary-landing" style="margin-top:17px;height:6px"></div>
-                <div class="bg-primary-landing" style="margin-top:16px;height:7px"></div>
-                <div class="bg-primary-landing" style="margin-top:15px;height:8px"></div>
-                <div class="bg-primary-landing" style="margin-top:14px;height:9px"></div>
-                <div class="bg-primary-landing" style="margin-top:13px;height:10px"></div>
-                <div class="bg-primary-landing" style="margin-top:12px;height:11px"></div>
-                <div class="bg-primary-landing" style="margin-top:11px;height:12px"></div>
-                <div class="bg-primary-landing" style="margin-top:10px;height:13px"></div>
-                <div class="bg-primary-landing" style="margin-top:9px;height:14px"></div>
-                <div class="bg-primary-landing" style="margin-top:8px;height:15px"></div>
-                <div class="bg-primary-landing" style="margin-top:7px;height:16px"></div>
-                <div class="bg-primary-landing" style="margin-top:6px;height:17px"></div>
-                <div class="bg-primary-landing" style="margin-top:5px;height:18px"></div>
-                <div class="bg-primary-landing" style="margin-top:4px;height:19px"></div>
-                <div class="bg-primary-landing" style="margin-top:3px;height:20px"></div>
-                <div class="bg-primary-landing" style="margin-top:2px;height:21px"></div>
-                <div class="bg-primary-landing" style="margin-top:1px;height:22px"></div>
-                <div class="bg-primary-landing" style="margin-top:0px;height:23px"></div>
-                <div class="bg-primary-landing" style="margin-top:0px;height:50px"></div>
-            </div>
-        </div>
-    </illusion>
-    <script src="script.js"></script>
 
 </div>
-
 </html>

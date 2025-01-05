@@ -1,0 +1,34 @@
+<nav class="topnav" id="navbar">
+    <body>
+        <div class="navbar-content">
+            <div class="topnav-left">
+                <a href="/index.html" class="navbar-title">TB</a>
+            </div>
+        
+            <div class="topnav-center">
+                <a href="/subpages/research.html">Research</a>
+                <a href="/subpages/projects.html">Projects</a>
+                <a href="/subpages/blog.html">Blog</a>
+                <a href="/subpages/dev.html">Dev</a>
+            </div>
+        
+            <div class="topnav-right">
+        
+                <div class="burger" onclick="toggleMobileMenu()">Menu</div>
+        
+                <a href="#" onclick="toggleTheme()" id="theme-icon" alt="Theme">
+                    <img id="theme-icon-img" src="/icons/light-mode.png" alt="Toggle Theme">
+                </a>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/subpages/research.html">Research</a>
+            <a href="/subpages/projects.html">Projects</a>
+            <a href="/subpages/blog.html">Blog</a>
+            <a href="/subpages/dev.html">Dev</a>
+        </div>
+        
+        <div class="screen-overlay" id="screenOverlay" onclick="toggleMobileMenu()"></div>
+    </body>
+</nav>
