@@ -35,7 +35,7 @@ main {
 }
 
 main h2 {
-  padding-top: 50px;
+  padding-top: 2%;
 }
 
 /* Link Styles */
@@ -63,13 +63,6 @@ body.light-mode a:hover {
   color: var(--link-hover-color);
 }
 
-@media screen and (max-width: 800px) {
-  main {
-    padding-left: 0vw;
-    padding-right: 0vw;
-  }
-  
-}
 
 /* --------------------------------- */
 /* Navbar                            */
@@ -87,7 +80,7 @@ body.light-mode a:hover {
     width: 100%;
     top: 0;
     z-index: 1002;
-    padding-top: 20px 20px;
+    padding-top: 1%;
     transition: top 1s ease, background-color 0.3s ease;
     backdrop-filter: blur(10px);
 }
@@ -272,6 +265,14 @@ body.light-mode .mobile-menu a:hover {
     display: none !important;
   }
 }
+
+/* EXPLAIN */
+.explaining {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 0.9em;
+}
+
 
 /* CONTACT */
 
@@ -618,6 +619,13 @@ body.light-mode .footer-bottom {
 
 
 @media screen and (max-width: 800px) {
+
+  .explaining {
+    margin-top: -5%;
+    margin-bottom: -5%;
+    text-align: center;
+  }
+
   .card {
     width: 186px;   /* 350px */
     height: 250px; /* 470px */
@@ -658,10 +666,14 @@ body.light-mode .footer-bottom {
   }
 
 
-
   .main {
+    padding-top: 5%;
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  main h2 {
+    padding-top: 20%;
   }
 }
 
