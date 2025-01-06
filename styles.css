@@ -622,8 +622,8 @@ article {
   margin-bottom: 20px;
 }
 
-article h1, article h2 {
-  font-size: 4rem;
+article h1, article h2, article h3 {
+  font-size: 4.2rem;
   font-weight: 400;
   line-height: 1.2;
   text-align: center; 
@@ -631,9 +631,33 @@ article h1, article h2 {
   margin-bottom: 1vw; 
 }
 
+article h1 {
+  text-align: left;
+  margin-bottom: 0vw;
+}
+
 article h2 {
   font-size: 2rem;
   margin-top: 5vw;
+  margin-bottom: 1vw;
+}
+
+article h3 {
+  text-align: left;
+  font-weight: 130;
+  font-size: 1.5rem;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  margin-left: 0vw;
+  margin-right: 10vw;
+}
+
+article date {
+  font-size: 0.7em;
+  font-weight: lighter;
+  text-align: left;
+  display: block;
+  margin-left: 0vw;
   margin-bottom: 1vw;
 }
 
