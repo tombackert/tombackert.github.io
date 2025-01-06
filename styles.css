@@ -748,5 +748,29 @@ article figcaption {
     padding-left: 5%;
     padding-right: 5%;
   }
+
+  article p {
+    margin-bottom: 20px;
+  }
+
+  article h2 {
+    margin-top: 10vw;
+    margin-bottom: 2vw;
+    text-align: left;
+  }
+
+  article h1, article h3 {
+    text-align: left;
+  }
+
+  article h3 {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+
+  article figure {
+    margin-top: 15vw;
+    margin-bottom: 15vw;
+  }
 }
 
