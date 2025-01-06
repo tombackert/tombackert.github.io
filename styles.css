@@ -38,6 +38,10 @@ main h2 {
   padding-top: 2%;
 }
 
+main h1 {
+  padding-top: 10%;
+}
+
 /* Link Styles */
 a {
   color: #ffffff;
@@ -307,8 +311,7 @@ body.light-mode .mobile-menu a:hover {
   
 }
 
-
-/* CONTENT */
+/* CARDS */
 
 
 .scroll-container {
@@ -607,6 +610,80 @@ body.light-mode .footer-bottom {
 }
 
 
+/* --------------------------------- */
+/* CONTENT                           */
+/* --------------------------------- */
+article {
+  padding-left: 20vw;
+  padding-right: 20vw;
+  font-weight: lighter;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+article h1, article h2, article h3 {
+  font-size: 4.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center; 
+  margin-top: 5vw;
+  margin-bottom: 1vw; 
+}
+
+article h1 {
+  text-align: left;
+  margin-bottom: 0vw;
+}
+
+article h2 {
+  font-size: 2rem;
+  margin-top: 5vw;
+  margin-bottom: 1vw;
+}
+
+article h3 {
+  text-align: left;
+  font-weight: 130;
+  font-size: 1.5rem;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  margin-left: 0vw;
+  margin-right: 10vw;
+}
+
+article date {
+  font-size: 0.7em;
+  font-weight: lighter;
+  text-align: left;
+  display: block;
+  margin-left: 0vw;
+  margin-bottom: 1vw;
+}
+
+article figure {
+  margin: 5vw;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+}
+
+article img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+article figcaption {
+  font-size: 0.7em;
+  font-weight: lighter;
+}
+
+
+
+
+
+
 @media screen and (max-width: 800px) {
 
   .explaining {
@@ -665,6 +742,11 @@ body.light-mode .footer-bottom {
 
   main h2 {
     padding-top: 20%;
+  }
+
+  article {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 
