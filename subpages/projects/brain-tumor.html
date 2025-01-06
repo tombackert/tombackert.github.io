@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>TB - Brain Tumor Classifier</title>
+        <link rel="stylesheet" href="/styles.css" />
+        <script src="/script.js"></script>
+    </head>
+
+    <body>
+        <div id="navbar-container"></div>
+
+        <main class="main">
+
+            <article>
+                <h1>Brain Tumor Classifier</h1>
+
+                <h2>Abstract</h2>
+                <p>This project focuses on developing a deep learning model to classify brain tumors using MRI scans. By
+                    leveraging transfer learning techniques with pre-trained convolutional neural networks, we achieved
+                    a high diagnostic accuracy of up to 99%. The model differentiates between glioma, meningioma,
+                    pituitary tumors, and healthy brain tissue. Our results highlight the potential of AI in enhancing
+                    early detection and diagnosis in neuro-oncology, providing valuable support for clinical
+                    decision-making. The project also emphasizes the importance of dataset curation and model
+                    interpretability, ensuring the reliability and trustworthiness of AI-driven healthcare solutions. This project can assist neuro-oncoliogists in real world scenarios.
+                </p>
+
+                <h2>Introduction</h2>
+                <p>Distinguishing between healthy brain tissue and various types of tumors, such as glioma, meningioma,
+                    and
+                    pituitary
+                    tumors, is a critical challenge in neuro-oncology. Early and accurate classification of MRI scans
+                    provides essential
+                    information for treatment planning, reducing risk, and potentially improving patient outcomes. In
+                    this
+                    project, we
+                    leveraged deep learning, specifically transfer learning techniques, to build a classification system
+                    capable of
+                    differentiating four categories in MRI brain images: glioma, meningioma, pituitary tumor, and no
+                    tumor.
+                    By utilizing
+                    pre-trained convolutional neural networks (CNNs) and fine-tuning them on our curated dataset, we
+                    aimed
+                    to achieve a high
+                    level of diagnostic accuracy (99%) that could support clinical decision-making.</p>
+
+                <figure>
+                    <img src="/src/brain-tumor/preview.png" alt="dataset preview" />
+                    <figcaption>Dataset preview</figcaption>
+                </figure>
+
+
+                <h2>Background</h2>
+                <p>
+                    Common types of brain tumors include:
+                    Gliomas arise from glial cells, which support neuron function. Meningiomas form in the meninges, the
+                    protective layers of the brain. Pituitary tumors develop in the pituitary gland, which regulates
+                    hormones. The absence of pathological growths indicates a healthy brain with no tumor.
+
+                    Magnetic Resonance Imaging (MRI) is a non-invasive imaging modality commonly used to diagnose brain
+                    abnormalities. Our project focuses on leveraging Machine Learning (ML) and Deep Learning
+                    techniques—specifically transfer learning with pre-trained convolutional neural networks—to classify
+                    MRI images into four categories: glioma, meningioma, pituitary tumor, or no tumor.
+
+                    The goal of this project is to develop a robust ML model capable of accurately classifying brain MRI
+                    images into these four classes. The motivation is to help clinicians with early tumor detection,
+                    supporting more effective and timely treatments and improving patient quality of life.
+
+                <h2>Data and Preprocessing</h2>
+                <p>
+                    Our dataset was created by combining and curating images from multiple publicly available sources on
+                    brain tumor:
+                <ul>
+                    <li><a href="https://figshare.com/articles/dataset/brain_tumor_dataset/1512427">Figshare Brain Tumor
+                            Dataset</a></li>
+                    <li><a href="https://www.kaggle.com/sartajbhuvaji/brain-tumor-classification-mri">Kaggle: Brain
+                            Tumor Classification MRI (Sartaj Bhuvaji)</a></li>
+                    <li><a href="https://www.kaggle.com/datasets/ahmedhamada0/brain-tumor-detection">Kaggle: Brain Tumor
+                            Detection (Ahmed Hamada)</a></li>
+                </ul>
+                After careful integration and filtering, our combined dataset consisted of 7153 MRI images. Each image
+                belongs to one of four classes: glioma, meningioma, pituitary tumor, or no tumor. The classes are
+                relatively balanced, each having over 1000 samples, thus minimizing severe class imbalance issues.
+
+                <figure>
+                    <img src="/src/brain-tumor/train.png" alt="Train set distribution">
+                    <figcaption>Training set tumor classes distribution</figcaption>
+                </figure>
+
+                Links to Our Data and Code:
+                Our project repository is available on <a href="https://github.com/tombackert/brain-tumor">GitHub</a>,
+                where you can find all the code and resources used in this project. The curated dataset can be accessed
+                on <a href="https://www.kaggle.com/datasets/tombackert/brain-tumor-mri-data">Kaggle</a>. Additionally,
+                you can explore our detailed notebooks for the VGG16 model <a
+                    href="https://www.kaggle.com/code/tombackert/brain-tumor-mri-classification-vgg16">here</a> and the
+                Xception model <a
+                    href="https://www.kaggle.com/code/tombackert/brain-tumor-mri-classification-xception">here</a>.
+
+                Our dataset was assembled from publicly available sources and carefully curated to ensure quality and
+                representativeness. We combined images from multiple repositories, including Figshare and Kaggle,
+                ensuring that each class had over 1000 samples. In total, we obtained 7153 MRI images spanning the four
+                categories. The final dataset demonstrated a reasonable class balance and, upon manual review, contained
+                no severely degraded or irrelevant samples.
+
+                The curated dataset was made publicly available on Kaggle, where in the past 30 days alone it has
+                garnered over 6000 views and 800 downloads. This level of engagement highlights the broader research
+                community’s interest in accessible, well-structured medical imaging resources.
+
+                <figure>
+                    <img src="/src/brain-tumor/test.png" alt="test set distribution">
+                    <figcaption>Test set tumor classes distribution</figcaption>
+                </figure>
+
+                To better understand the data, we conducted exploratory data analysis (EDA) in Python using libraries
+                such as NumPy, Pandas, and Seaborn. EDA helped us confirm the dataset’s integrity, allowing for the
+                identification and removal of any potential outliers or low-quality images. Class distributions were
+                visualized to ensure relative balance, and sample images from each class were inspected to understand
+                morphological distinctions that could guide the model’s feature learning.
+
+                <figure>
+                    <img src="/src/brain-tumor/overview.png" alt="Kaggle user engagement">
+                    <figcaption>Kaggle user engagement with the dataset (Jan 2025)</figcaption>
+                </figure>
+
+                Before proceeding with modeling, we divided the entire dataset into training, validation, and test sets
+                to facilitate rigorous evaluation. Approximately 81.7% of the data (5842 images) was allocated for
+                training, with about 9.1% (655 images) used for validation and 9.2% (656 images) reserved for the test
+                set. We applied standard normalization techniques to the image pixel values, scaling them to a
+                consistent range suitable for pre-trained CNN architectures. Though data augmentation was considered,
+                the large dataset size and balanced classes meant augmentation was not strictly necessary to achieve
+                robust performance, though simple adjustments such as brightness variations were introduced to enhance
+                generalization.
+
+                </p>
+
+                <h2>Modeling</h2>
+                <p>
+                    The core of our modeling strategy involved transfer learning with well-known architectures trained
+                    initially on
+                    ImageNet, a large-scale natural image dataset. We chose to compare the performance of two
+                    architectures: VGG16 and
+                    Xception. Both models are widely respected for their robustness and representational power. By first
+                    “freezing” all
+                    or
+                    most convolutional layers, we preserved the general feature extraction capabilities learned from
+                    millions of natural
+                    images, then fine-tuned only the top layers to specialize the models for MRI-based tumor
+                    classification.
+                    In practice, we worked primarily in a Python environment leveraging the TensorFlow and Keras
+                    frameworks. Our
+                    notebooks
+                    detail every step of this process. For instance, we implemented data generators to feed images to
+                    the network. Using
+                    the
+                    ImageDataGenerator class, we employed rescaling and optional brightness adjustments. During
+                    training, we employed a
+                    batch size of 32 and ran for 10 epochs initially. The models utilized the Adamax optimizer at a
+                    learning rate of
+                    0.001,
+                    chosen after preliminary testing indicated stable convergence. We monitored training progress via
+                    accuracy, loss,
+                    precision, and recall metrics, all logged at each epoch. Validation performance guided early
+                    stopping criteria and
+                    hyperparameter refinements.
+
+                    Metrics for Xception model:
+                    
+                    <figure>
+                        <img src="/src/brain-tumor/metrics.png" alt="Xception model metrics">
+                        <figcaption>Xception model metrics</figcaption>
+                    </figure>
+
+                    The Xception model, implemented in TensorFlow, was initially trained for 10 epochs, achieving
+                    exceptionally strong
+                    validation metrics. A highlight of our experiments was the Xception-based classifier’s near-perfect
+                    performance: we
+                    recorded over 98% validation accuracy and an impressive 99.09% test accuracy. Visualization of the
+                    training curves
+                    showed that both training and validation losses steadily decreased, indicating that the model was
+                    neither
+                    overfitting
+                    severely nor suffering from underfitting. The smooth convergence patterns, combined with the high
+                    accuracy on the
+                    previously unseen test set, reinforced our confidence that the model effectively learned relevant
+                    tumor-related
+                    features.
+                    The VGG16-based model, using a similar training setup and hyperparameters, also converged but to a
+                    slightly lower
+                    accuracy. After a series of training and fine-tuning steps—first training only the top layers, then
+                    selectively
+                    “unfreezing” the final convolutional blocks to fine-tune deeper features—the VGG16-based approach
+                    achieved around
+                    92.67%
+                    validation accuracy and 90.70% test accuracy. While these results are very respectable, they did not
+                    match the
+                    Xception
+                    model’s peak performance. Close examination of confusion matrices and classification reports from
+                    the notebooks
+                    provided
+                    insights into where misclassifications occurred. The largest confusions typically arose between
+                    meningioma and
+                    glioma
+                    classes, underscoring the complexity and subtlety of certain MRI-based distinctions.
+                    Throughout our technical process, we extensively used Pythonic tools to measure performance. For
+                    instance, we
+                    generated
+                    confusion matrices to identify class-level weaknesses, and we leveraged classification reports to
+                    compute precision,
+                    recall, and F1-scores at a detailed, per-class level. Model parameters, including the learning rate
+                    for the
+                    fine-tuning
+                    phase, were adjusted based on these evaluations. Our code and notebooks showed that small changes,
+                    such as lowering
+                    the
+                    learning rate to 1e-4 during the fine-tuning phase of VGG16, led to meaningful improvements in
+                    validation metrics.
+                    This
+                    iterative experimentation allowed us to refine the models to their best observed performance.
+                </p>
+                
+
+                <h2>Results</h2>
+                <p>
+                    The final results indicated that transfer learning is an effective strategy for MRI-based brain
+                    tumor
+                    classification.
+                    The Xception model, in particular, demonstrated a remarkable aptitude for extracting and
+                    internalizing relevant
+                    features, achieving over 99% accuracy on the test set. These findings suggest that, given a
+                    sufficiently large and
+                    clean
+                    dataset, pre-trained CNNs can be adapted to medical imaging tasks with minimal architectural changes
+                    and relatively
+                    short training times.
+
+                <figure>
+                    <img src="/src/brain-tumor/cfm.png" alt="Confsusion matrix for Xception model">
+                    <figcaption>Confusion matrix for Xception model</figcaption>
+                </figure>
+
+
+                However, it is essential to interpret these results with caution. While the test accuracy is
+                extremely high,
+                clinical
+                adoption of such a system would require external validation on MRI scans from different sources,
+                scanners, and
+                patient
+                populations. The consistent performance across training and validation suggests that overfitting was
+                not a major
+                concern, but further generalization studies remain a priority for future research. Another
+                consideration is
+                explainability. Though not the primary focus of this project, deploying techniques like Grad-CAM
+                would help
+                clinicians
+                understand the basis for the model’s predictions, increasing trust in automated diagnostic aids.
+
+                </p>
+
+                <h2>Challenges and Future Work</h2>
+                <p>
+                    This project presented several challenges. Curating a large, high-quality dataset was time-consuming
+                    but vital for model reliability. The reliance on GPU resources was essential, as the complexity and size of these models
+                    demanded significant computational power. Training took about 45 minutes on an H100 GPU. Iterative tuning of hyperparameters—careful adjustments to the
+                    learning rate, batch size, and number of unfrozen layers—was necessary to achieve optimal results. Despite these hurdles,
+                    the outcome was successful and instructive, showing that perseverance and systematic experimentation can yield
+                    strong performance in medical imaging tasks.
+                    Moving forward, there are several promising avenues for extending this work. Testing the model on
+                    external datasets would establish its robustness and clinical relevance. Implementing newer architectures like
+                    EfficientNet or Vision Transformers might further improve accuracy and generalization. Additionally, incorporating
+                    meta-data, such as patient age or clinical histories, could enhance diagnostic power. Above all, exploring interpretability
+                    methods would help bridge the gap between cutting-edge machine learning and actionable clinical insights. The aim is also to collaborate with other ML engineers to explore new ways to make the model more efficient, robust, and faster, and to enhance the dataset so it is suitable for segmentation tasks.
+                </p>
+
+
+                <h2>Project Resources</h2>
+                <p>
+                    <li>
+                        <a href="https://github.com/tombackert/brain-tumor">Project GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://www.kaggle.com/datasets/tombackert/brain-tumor-mri-data/data">Kaggle
+                            dataset</a>
+                    </li>
+                    <li>
+                        <a href="https://www.kaggle.com/code/tombackert/99-acc-brain-tumor-mri-classification-xception">Best
+                            model</a>
+                    </li>
+                    <li>
+                        <a href="https://www.kaggle.com/code/tombackert/brain-tumor-mri-classification-vgg16">Alternative
+                            model</a>
+                    </li>
+                </p>
+            </article>
+
+
+
+        </main>
+
+        <div id="footer-container"></div>
+        <div id="illusion-container"></div>
+    </body>
+
+</html>
