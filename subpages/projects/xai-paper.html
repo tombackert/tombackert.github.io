@@ -7,6 +7,18 @@
         <title>Explaining DNNs - tombackert/projects/xaipaper</title>
         <link rel="stylesheet" href="/styles.css" />
         <script src="/script.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']], // Unterstützt $...$ und \(...\)
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']] // Unterstützt $$...$$ und \[...\]
+                }
+            };
+        </script>
+        <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 
     <body>
@@ -229,96 +241,138 @@
 
                 <h3>2.2 &nbsp; Grad-CAM: White-Box Method</h3>
                 <p>
-                    Grad-CAM (Gradient-weighted Class Activation Mapping) [2] aims to provide visual explanations for
-                    the decisions made by Convolutional Neural Networks (CNNs). By generating a heatmap that highlights
-                    important regions in the input image, Grad-CAM helps identify which parts of the image are most
-                    influential in the model’s decision-making process. This method is particularly useful in
-                    applications like medical imaging, where understanding the model’s focus can enhance trust and
-                    decision-making.
+                    %Functional Description
+                    LIME (Local Interpretable Model-Agnostic Explanations) aims to provide interpretable explanations for the predictions of
+                    black-box models within a local region around the instance being explained by approximating the model locally with a
+                    simpler, interpretable model. The method is designed to be model-agnostic, meaning it can be applied to any classifier
+                    without requiring access to the model’s internal structure. LIME is particularly valuable in scenarios where the
+                    underlying model is too complex to understand directly. The primary goal is to offer explanations that are faithful to
+                    the model’s predictions, making them understandable to humans regardless of the features utilized by the model.
                 </p>
+                
                 <p>
-                    Grad-CAM leverages the gradients flowing into the last convolutional layer of a CNN to assign
-                    importance to the neurons for a specific class. By combining these gradients with the feature maps
-                    of the last convolutional layer, Grad-CAM produces a localization map that highlights the regions
-                    of the input image that are most relevant to the prediction. This approach uses the internal
-                    architecture of the model, making it a white-box method.
+                    LIME approximates the complex decision function of the model $f$ with a simpler, interpretable model $g$ within a local
+                    region around the instance to be explained. This is achieved by generating a set of perturbed samples around the
+                    instance and observing the black-box model’s predictions for these samples. The perturbed samples are weighted based on
+                    their proximity to the original instance, and an interpretable model is trained on these samples to approximate the
+                    local decision boundary of the black-box model. The resulting explanation highlights the features that are most
+                    influential for the prediction in the local neighborhood of the instance.
                 </p>
 
-                <p>Detailed Steps:</p>
-                <ol>
-                    <li>
-                        <em>Gradient Calculation:</em> Compute the gradient of the score for a target class
-                        <code>y^c</code>
-                        with respect to the feature map activations of the last convolutional layer. This gradient
-                        indicates
-                        how much a small change in the activations of a feature map will affect the score of class
-                        <code>c</code>.
-                    </li>
-                    <li>
-                        <em>Neuron Importance Weights Calculation:</em> Globally average-pool the gradients to obtain
-                        the
-                        neuron importance weights <code>&alpha;^c_k</code>. These weights represent the importance of
-                        each
-                        feature map <code>k</code> for the target class <code>c</code>.
-                    </li>
-                    <li>
-                        <em>Grad-CAM Heatmap Calculation:</em> Use a weighted combination of the feature maps, followed
-                        by
-                        ReLU to focus on features that have a positive influence on the class score. This produces a
-                        heatmap
-                        highlighting the relevant regions in the input image for the specific prediction.
-                    </li>
-                </ol>
+                <p>Detailed Steps:
+                    <ol>
+                        <li>
+                            <strong>Gradient Calculation:</strong><br>
+                            The first step in Grad-CAM is to compute the gradient of the score for a target class $y^c$ with respect to the feature
+                            map activations $A^k \in \mathbb{R}^{w' \times h'}$, where $w'$ and $h'$ are the width and height of the activations,
+                            respectively. This gradient, $\frac{\partial y^c}{\partial A^k}$, indicates how much a small change in the activations
+                            of $A^k$ will affect the score of class $c$.
+                        </li>
+                        <li>
+                            <strong>Neuron Importance Weights Calculation:</strong><br>
+                            Next, the gradients are globally average-pooled to obtain the neuron importance weights $\alpha^c_k$. These
+                            weights represent the importance of each feature map $k$ for the target class $c$:
+                            \[
+                            \alpha^c_k = \frac{1}{Z}\sum_{i} \sum_{j} \frac{\partial y^c}{\partial A^k_{ij}}
+                            \]
+                            where $Z$ is the number of pixels in the feature map.
+                        </li>
+                        <li>
+                            <strong>Grad-CAM Heatmap Calculation:</strong><br>
+                            Finally, the class-discriminative localization map $L^c_{\text{Grad-CAM}} \in \mathbb{R}^{w' \times h'}$ is
+                            computed using a weighted combination of the feature maps, followed by applying the Rectified Linear Unit (ReLU)
+                            to focus on the features that have a positive influence on the class score:
+                            \[
+                            L_{Grad-CAM}^{c} = \text{ReLU} \left( \sum_{k} \alpha^c_k A^k \right)
+                            \]
+
+                            This results in a heatmap that highlights the regions of the input image that are most important for the prediction. It
+                            is noticable that the coarse heatmap is of the same size as the convolutional feature maps ($14 \times 14$ in the case
+                            of last convolutional layers of VGG [4] and AlexNet [5]).
+                        </li>
+                    </ol>
+                </p>
+
                 <p>
-                    Grad-CAM is particularly advantageous for understanding high-level visual features captured by deep
-                    CNNs. However, it requires a detailed understanding of the model architecture and the computation of
-                    gradients, which might not always be straightforward.
+                    E.g., in classifying handwritten digits (MNIST), Grad-CAM can show that certain areas of the image containing round
+                    shapes are more important for classifying the digit “0”.
+                    
+                    Grad-CAM is particularly advantageous for understanding high-level visual features captured by deep CNNs. By focusing on
+                    the gradients in the last convolutional layer, it provides interpretable explanations of the model’s predictions.
+                    However, it requires a detailed understanding of the model architecture and the computation of gradients, which might
+                    not always be straightforward.
                 </p>
 
                 <h3>2.3 &nbsp; LIME: Black-Box Method</h3>
+                
                 <p>
-                    LIME (Local Interpretable Model-Agnostic Explanations) [1] aims to provide interpretable
-                    explanations
-                    for the predictions of black-box models within a local region around the instance being explained,
-                    by approximating the model locally with a simpler, interpretable model. LIME is model-agnostic,
-                    making it applicable to any classifier without requiring access to internal model parameters.
+                    LIME (Local Interpretable Model-Agnostic Explanations) aims to provide interpretable explanations for the
+                    predictions of black-box models within a local region around the instance being explained by approximating the model
+                    locally with a simpler, interpretable model. The method is designed to be model-agnostic, meaning it can be applied
+                    to any classifier without requiring access to the model’s internal structure. LIME is particularly valuable in
+                    scenarios where the underlying model is too complex to understand directly. The primary goal is to offer
+                    explanations that are faithful to the model’s predictions, making them understandable to humans regardless of the
+                    features utilized by the model.
                 </p>
-                <p>
-                    LIME approximates the complex decision function of the model <code>f</code> with a simpler,
-                    interpretable
-                    model <code>g</code> within a local region around the instance to be explained. This is done by
-                    generating a set of perturbed samples around the instance and observing the black-box model’s
-                    predictions
-                    for these samples. The perturbed samples are weighted based on their proximity to the original
-                    instance,
-                    and an interpretable model is trained on these samples to approximate the local decision boundary.
-                </p>
-
-                <p>Detailed Steps:</p>
+                
+                <h3>Detailed Steps:</h3>
                 <ol>
                     <li>
-                        <em>Generation of Perturbed Samples:</em> LIME begins by creating perturbed instances of the
-                        input data. For images, this often involves modifying superpixels or segments in the image.
+                        <strong>Generation of Perturbed Samples:</strong><br>
+                        LIME begins by creating perturbed instances of the input data. For an image, this might involve altering
+                        superpixels (clusters of similar pixels) to generate new samples. These perturbed samples form a dataset \( Z \)
+                        around the original instance \( x \).
                     </li>
+                
                     <li>
-                        <em>Weighting the Samples:</em> Each perturbed sample is weighted based on its proximity to
-                        the original instance using a kernel function, so samples closer to the instance have a greater
-                        influence on the local explanation.
+                        <strong>Weighting the Samples:</strong><br>
+                        Each perturbed sample is weighted based on its proximity to the original instance. This is done using an
+                        exponential kernel defined on the \( L_2 \) distance:
+                        \[
+                        \pi_x(z) = \exp\left(-\frac{\|z - x\|^2}{\sigma^2}\right)
+                        \]
+                        This weighting ensures that samples closer to the original instance have a greater influence on the explanation.
                     </li>
+                
                     <li>
-                        <em>Training the Interpretable Model:</em> LIME trains a simple, interpretable model
-                        <code>g</code>
-                        to approximate the predictions of the complex model <code>f</code> within the local neighborhood
-                        of the instance. The goal is to minimize the loss between <code>f</code> and <code>g</code>
-                        in this locality while keeping <code>g</code> simple enough to be interpretable.
+                        <strong>Training the Interpretable Model:</strong><br>
+                        LIME then trains a simple, interpretable model \( g \) to approximate the predictions of the complex model \( f
+                        \) within the local vicinity of \( x \). The objective is to minimize the locality-aware loss \( \mathcal{L}(f,
+                        g, \pi_x) \) while keeping the model \( g \) simple:
+                        \[
+                        \xi(x) = \arg\min_{g \in G} \mathcal{L}(f, g, \pi_x) + \Omega(g)
+                        \]
+                        Here, \( \Omega(g) \) is a regularization term that penalizes model complexity to ensure interpretability.
+                    </li>
+                
+                    <li>
+                        <strong>Locally Weighted Square Loss:</strong><br>
+                        The locality-aware loss \( \mathcal{L}(f, g, \pi_x) \) evaluates how accurately the interpretable model \( g \)
+                        captures the behavior of the black-box model \( f \) within the local neighborhood:
+                        \[
+                        \mathcal{L}(f, g, \pi_x) = \sum_{z \in Z} \pi_x(z)(f(z) - g(z))^2
+                        \]
+                        By using this locally weighted loss function, the explanation model is trained to focus more on instances that
+                        are closer to the instance being explained, thus capturing the local decision boundary of the black-box model
+                        more effectively.
                     </li>
                 </ol>
+
                 <p>
-                    LIME answers the question of feature importance differently than Grad-CAM by approximating the
-                    model locally and using perturbed samples to generate explanations. This difference in approach
-                    allows LIME to be applied to any black-box model. However, the computational cost of generating
-                    multiple model evaluations can be high, and the quality of the explanation depends on the fidelity
-                    of the local approximation.
+                    For image classification, LIME can explain why a particular image was classified as a dog by highlighting the
+                    superpixels (image segments) that are most influential for the prediction. By generating and analyzing perturbed
+                    versions of the image, LIME might reveal that the shape of the ears and fur patterns are critical features for the
+                    classification.
+                </p>
+                
+                <p>
+                    LIME answers the question of feature importance differently than Grad-CAM. While Grad-CAM uses the internal gradients of
+                    the model to highlight important regions, LIME approximates the model locally and uses perturbed samples to generate
+                    explanations. This difference in approach allows LIME to be applied to any black-box model without requiring access to
+                    its internal structure. However, the computational cost of generating multiple model evaluations can be high, and the
+                    quality of the explanation depends on the fidelity of the local approximation, which might vary based on the choice of
+                    perturbations and the locality considered.
+
                 </p>
 
                 <h3>2.4 &nbsp; Evaluation of Feature Importance Methods</h3>

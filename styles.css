@@ -203,7 +203,6 @@ body.light-mode .mobile-menu {
 }
 
 
-
 body.light-mode .screen-overlay {
   background: rgba(255,255,255,1);
 }
@@ -712,7 +711,7 @@ article figtitle {
 
 .clean-table td,
 .clean-table th {
-    padding: 8px 16px;
+    padding: 0.1vw 1vw;
 }
 
 
@@ -787,10 +786,22 @@ article figtitle {
     margin-bottom: 20px;
   }
 
+  article h1 {
+    font-size: 3rem;
+  }
+
+  article subtitle {
+    font-size: 1.1rem;
+  }
+
   article h2 {
     margin-top: 10vw;
     margin-bottom: 2vw;
     text-align: left;
+  }
+
+  article h3 {
+    font-size: 1.2rem;
   }
 
   article h1, article subtitle {
