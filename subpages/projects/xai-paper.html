@@ -35,7 +35,8 @@
                     respective
                     categories. We explore the trade-offs between these methods in terms of interpretability, fidelity,
                     and computational efficiency. By evaluating their performance using the Explanation Selectivity
-                    metric, this study provides insights into the suitability of these methods for object recognition
+                    metric [3], this study provides insights into the suitability of these methods for object
+                    recognition
                     tasks. The findings aim to guide the selection of appropriate XAI methods, contributing to the
                     development of more transparent and trustworthy AI systems.
                 </p>
@@ -97,9 +98,10 @@
                     <li>
                         <strong>Black-Box vs. White-Box Methods:</strong> Deciding between black-box and white-box
                         methods
-                        for Feature Importance is complex. Black-box methods, like LIME, do not require access to the
+                        for Feature Importance is complex. Black-box methods, like LIME [1], do not require access to
+                        the
                         model’s internal structure but may lack the depth of explanation provided by white-box methods,
-                        like Grad-CAM, which utilize the model’s internal gradients and architecture.
+                        like Grad-CAM [2], which utilize the model’s internal gradients and architecture.
                     </li>
                     <li>
                         <strong>Local vs. Global Explanations:</strong> Feature Importance methods typically provide
@@ -133,8 +135,8 @@
                     feature
                     importance techniques. To simplify the comparison, one exemplary method from each category was
                     chosen:
-                    LIME (Local Interpretable Model-Agnostic Explanations) as a black-box method and Grad-CAM
-                    (Gradient-weighted Class Activation Mapping) as a white-box method.
+                    LIME (Local Interpretable Model-Agnostic Explanations) as a black-box method [1] and Grad-CAM
+                    (Gradient-weighted Class Activation Mapping) as a white-box method [2].
                 </p>
 
                 <!-- Background -->
@@ -167,11 +169,11 @@
                 </p>
                 <p>
                     <strong>Gradient-based methods:</strong> These use the gradients of the output with respect to the
-                    input features to understand the importance of each feature. For example, Grad-CAM
-                    (Gradient-weighted
-                    Class Activation Mapping) generates visual explanations for CNNs by using gradient information from
-                    the last convolutional layer. This produces a heatmap highlighting important regions in the input
-                    image, helping to understand high-level visual features captured by deep CNNs.
+                    input features to understand the importance of each feature. For example, Grad-CAM [2] generates
+                    visual explanations for CNNs by using gradient information from the last convolutional layer. This
+                    produces a heatmap highlighting important regions in the input image, helping to understand
+                    high-level
+                    visual features captured by deep CNNs.
                 </p>
                 <p>
                     <strong>Layer-wise relevance propagation:</strong> This technique decomposes the prediction by
@@ -197,13 +199,9 @@
                 </p>
                 <p>
                     <strong>Perturbation-based methods:</strong> These generate explanations by observing the changes in
-                    the model’s output in response to perturbations in the input data. LIME (Local Interpretable
-                    Model-Agnostic
-                    Explanations) is a prominent example. LIME generates perturbed samples around the instance to be
-                    explained
+                    the model’s output in response to perturbations in the input data. LIME [1] is a prominent example.
+                    LIME generates perturbed samples around the instance to be explained
                     and fits an interpretable model to approximate the local decision boundary of the black-box model.
-                    This
-                    method is model-agnostic and can be applied to any classifier.
                 </p>
                 <p>
                     <strong>Surrogate models:</strong> These are simpler, interpretable models trained to approximate
@@ -221,8 +219,9 @@
                 <p>
                     Feature importance methods play a critical role in XAI by identifying which features are most
                     influential in the model’s predictions. Both white-box and black-box methods can be used to assess
-                    feature importance. For example, Grad-CAM identifies important regions in an image by analyzing
-                    gradient information, while LIME approximates the local decision boundary to highlight influential
+                    feature importance. For example, Grad-CAM [2] identifies important regions in an image by analyzing
+                    gradient information, while LIME [1] approximates the local decision boundary to highlight
+                    influential
                     features in the input data. These methods provide insights that help users understand the factors
                     driving the model’s decisions, which is essential for building trust and facilitating informed
                     decision-making.
@@ -230,7 +229,7 @@
 
                 <h3>2.2 &nbsp; Grad-CAM: White-Box Method</h3>
                 <p>
-                    Grad-CAM (Gradient-weighted Class Activation Mapping) aims to provide visual explanations for
+                    Grad-CAM (Gradient-weighted Class Activation Mapping) [2] aims to provide visual explanations for
                     the decisions made by Convolutional Neural Networks (CNNs). By generating a heatmap that highlights
                     important regions in the input image, Grad-CAM helps identify which parts of the image are most
                     influential in the model’s decision-making process. This method is particularly useful in
@@ -278,7 +277,8 @@
 
                 <h3>2.3 &nbsp; LIME: Black-Box Method</h3>
                 <p>
-                    LIME (Local Interpretable Model-Agnostic Explanations) aims to provide interpretable explanations
+                    LIME (Local Interpretable Model-Agnostic Explanations) [1] aims to provide interpretable
+                    explanations
                     for the predictions of black-box models within a local region around the instance being explained,
                     by approximating the model locally with a simpler, interpretable model. LIME is model-agnostic,
                     making it applicable to any classifier without requiring access to internal model parameters.
@@ -325,7 +325,7 @@
                 <p>
                     Comparing explanation techniques and objectively evaluating their quality is challenging.
                     Explanation
-                    Selectivity (<em>Montavon et al., 2018</em>) is a quantitative metric used to assess the quality of
+                    Selectivity [3] is a quantitative metric used to assess the quality of
                     an explanation method for feature importance in DNNs. It measures how well the method identifies
                     the features that have the strongest impact on a DNN’s prediction.
                 </p>
@@ -340,7 +340,7 @@
                     While Explanation Selectivity provides a more objective and quantitative measure than a purely
                     qualitative approach, it does come with caveats such as potential computational cost and the need
                     for expert interpretation of results. Nonetheless, it remains a valuable method to compare and
-                    validate different explanation techniques, including LIME and Grad-CAM.
+                    validate different explanation techniques, including LIME [1] and Grad-CAM [2].
                 </p>
 
                 <!-- Evaluation of LIME and GradCAM -->
@@ -356,9 +356,12 @@
 
                 <h3>3.2 &nbsp; Experimental Setup</h3>
                 <p>
-                    In this experiment, 20 distinct images were tested on two models, AlexNet and ResNet50, using the
-                    explanation methods LIME and GradCAM, over ten runs, resulting in a total of 800 test instances.
-                    Explanation Selectivity, measured by the AUC score, was employed as the comparison metric. The AUC
+                    In this experiment, 20 distinct images were tested on two models, AlexNet [5] and ResNet50,
+                    using the
+                    explanation methods LIME [1] and GradCAM [2], over ten runs, resulting in a total of 800 test
+                    instances.
+                    Explanation Selectivity [3], measured by the AUC score, was employed as the comparison metric.
+                    The AUC
                     scores were computed by iteratively removing the most relevant features identified by the
                     explainers.
                 </p>
@@ -371,8 +374,9 @@
 
                 <h3>3.3 &nbsp; Experimental Results</h3>
                 <p>
-                    The AUC values in the figure and table below demonstrate that LIME outperforms GradCAM in terms of
-                    the average AUC score across the entire sample set on ResNet50. However, on AlexNet, their
+                    The AUC values in the figure and table below demonstrate that LIME [1] outperforms GradCAM [2] in
+                    terms of
+                    the average AUC score across the entire sample set on ResNet50. However, on AlexNet [5], their
                     performances are almost similar. GradCAM’s performance can vary significantly depending on the
                     specific image being analyzed, whereas LIME exhibits variability across runs due to its randomized
                     nature.
@@ -380,7 +384,8 @@
 
                 <!-- Example figure: Average AUC per model -->
                 <figure>
-                    <img src="/src/xai-paper/grafics/average-auc-per-exp-and-model-plus-std-dev.png" alt="Average AUC per Model" />
+                    <img src="/src/xai-paper/grafics/average-auc-per-exp-and-model-plus-std-dev.png"
+                        alt="Average AUC per Model" />
                     <figcaption>Figure: Average AUC per Model and Explainer with Standard Deviation</figcaption>
                 </figure>
 
@@ -409,15 +414,16 @@
                 </table>
 
                 <p>
-                    GradCAM’s deterministic nature leads to consistent results across multiple runs, whereas LIME
-                    re-learns local approximations and can produce more variability. For some images, GradCAM can
-                    significantly outperform LIME; for others, the reverse is true. This trade-off between average
+                    GradCAM’s deterministic nature leads to consistent results across multiple runs, whereas LIME [1]
+                    re-learns local approximations and can produce more variability. For some images, GradCAM [2] can
+                    significantly outperform LIME [1]; for others, the reverse is true. This trade-off between average
                     performance and stability should be considered when choosing between the two methods.
                 </p>
 
                 <!-- Another sample figure with 10-run lineplot -->
                 <figure>
-                    <img src="/src/xai-paper/grafics/auc-over10-runs-lineplot.png" alt="AUC over 10 runs for sample images" />
+                    <img src="/src/xai-paper/grafics/auc-over10-runs-lineplot.png"
+                        alt="AUC over 10 runs for sample images" />
                     <figcaption>Figure: AUC scores over 10 runs for three sample images</figcaption>
                 </figure>
 
@@ -426,10 +432,11 @@
 
                 <h3>4.1 &nbsp; Interpretation of Results</h3>
                 <p>
-                    The experimental results show that LIME outperforms GradCAM on average AUC scores, particularly on
+                    The experimental results show that LIME [1] outperforms GradCAM [2] on average AUC scores,
+                    particularly on
                     ResNet50, suggesting it identifies relevant features more effectively in many cases. However, LIME’s
                     performance varies across runs due to its black-box nature and local approximation strategy.
-                    GradCAM,
+                    GradCAM [2],
                     while it may have higher average AUC in some settings, is more stable because it depends directly on
                     the model’s internal gradients.
                 </p>
@@ -458,7 +465,7 @@
 
                 <h3>4.3 &nbsp; Generalization of Results</h3>
                 <p>
-                    While our experiments focused on AlexNet and ResNet50 for object recognition, similar trade-offs
+                    While our experiments focused on AlexNet [5] and ResNet50 for object recognition, similar trade-offs
                     between white-box and black-box explanation methods likely exist for other models and tasks.
                     GradCAM’s strength lies in its high fidelity and stability, whereas LIME offers broader
                     applicability
@@ -483,18 +490,19 @@
                 <h2>Appendix: Application of Explanation Selectivity</h2>
                 <p>
                     Below are a few sample figures illustrating the feature removal process and the corresponding AUC
-                    scores for GradCAM on AlexNet and LIME on ResNet50:
+                    scores for GradCAM on AlexNet [5] and LIME on ResNet50:
                 </p>
 
                 <figure>
-                    <img src="/src/xai-paper/grafics/gradcam-labrador-feature-removal.png" alt="GradCAM Labrador Feature Removal" />
-                    <figcaption>GradCAM on AlexNet: Identifies the dog's face as the most important feature.
+                    <img src="/src/xai-paper/grafics/gradcam-labrador-feature-removal.png"
+                        alt="GradCAM Labrador Feature Removal" />
+                    <figcaption>GradCAM on AlexNet [5]: Identifies the dog's face as the most important feature.
                     </figcaption>
                 </figure>
 
                 <figure>
                     <img src="/src/xai-paper/grafics/gradcam-labrador-auc.png" alt="GradCAM Labrador AUC Score" />
-                    <figcaption>AUC score for GradCAM on AlexNet for labrador test image.</figcaption>
+                    <figcaption>AUC score for GradCAM on AlexNet [5] for labrador test image.</figcaption>
                 </figure>
 
                 <figure>
@@ -507,21 +515,20 @@
                     <figcaption>AUC score for LIME on ResNet50 for cat test image.</figcaption>
                 </figure>
 
-                <!-- References (the paper references a BibTeX file, placeholders used here) -->
+                <!-- Numbered References -->
                 <h2>References</h2>
-                <ul>
+                <ol>
                     <li>Ribeiro, M.T., Singh, S. & Guestrin, C. 2016. “Why Should I Trust You?”: Explaining the
-                        Predictions
-                        of Any Classifier.</li>
+                        Predictions of Any Classifier.</li>
                     <li>Selvaraju, R. R. et al. 2019. Grad-CAM: Visual Explanations from Deep Networks.</li>
                     <li>Montavon, G. et al. 2018. Methods for interpreting and understanding deep neural networks.</li>
                     <li>Simonyan, K. & Zisserman, A. 2015. Very deep convolutional networks for large-scale image
                         recognition.</li>
                     <li>Krizhevsky, A., Sutskever, I., & Hinton, G. E. 2012. ImageNet classification with deep
-                        convolutional
-                        neural networks.</li>
-                </ul>
-                    <p><a href="/src/xai-paper/whit-vs-blackbox-study.pdf">Link to pdf</a></p>
+                        convolutional neural networks.</li>
+                </ol>
+
+                <p><a href="/src/xai-paper/paper-tombackert.pdf">Link to pdf</a></p>
 
             </article>
 
