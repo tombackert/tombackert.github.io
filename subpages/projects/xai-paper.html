@@ -389,29 +389,31 @@
                     <figcaption>Figure: Average AUC per Model and Explainer with Standard Deviation</figcaption>
                 </figure>
 
-                <!-- Example table: AUC -->
-                <table>
-                    <caption>Average AUC Score per model and explainer</caption>
-                    <thead>
-                        <tr>
-                            <th>Model</th>
-                            <th>GradCAM</th>
-                            <th>LIME</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>AlexNet</td>
-                            <td>10.772466</td>
-                            <td>10.689476</td>
-                        </tr>
-                        <tr>
-                            <td>ResNet50</td>
-                            <td>14.792458</td>
-                            <td>11.851634</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- AUC Scores -->
+                <figure>
+                    <figtitle>Average AUC Score per model and explainer</figtitle>
+                    <table class="clean-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>GradCAM</th>
+                                <th>LIME</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AlexNet</td>
+                                <td>10.772466</td>
+                                <td>10.689476</td>
+                            </tr>
+                            <tr>
+                                <td>ResNet50</td>
+                                <td>14.792458</td>
+                                <td>11.851634</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </figure>
 
                 <p>
                     GradCAM’s deterministic nature leads to consistent results across multiple runs, whereas LIME [1]
