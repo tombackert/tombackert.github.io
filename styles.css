@@ -622,7 +622,7 @@ article {
   margin-bottom: 20px;
 }
 
-article h1, article h2, article h3 {
+article h1, article h2, article h3, article h4, article subtitle {
   font-size: 4.2rem;
   font-weight: 400;
   line-height: 1.2;
@@ -643,6 +643,20 @@ article h2 {
 }
 
 article h3 {
+  text-align: left;
+  font-size: 1.5rem;
+  margin-top: 5vw;
+  margin-bottom: 1vw;
+}
+
+article h4 {
+  text-align: left;
+  font-size: 1.2rem;
+  margin-top: 5vw;
+  margin-bottom: 1vw;
+}
+
+article subtitle {
   text-align: left;
   font-weight: 130;
   font-size: 1.5rem;
@@ -759,11 +773,11 @@ article figcaption {
     text-align: left;
   }
 
-  article h1, article h3 {
+  article h1, article subtitle {
     text-align: left;
   }
 
-  article h3 {
+  article subtitle {
     margin-top: 5vw;
     margin-bottom: 5vw;
   }
