@@ -676,8 +676,8 @@ article date {
 
 article figure {
   margin: 5vw;
-  margin-top: 3vw;
-  margin-bottom: 3vw;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
 }
 
 article img {
@@ -690,6 +690,7 @@ article img {
 article figcaption {
   font-size: 0.7em;
   font-weight: lighter;
+  text-align: center;
 }
 
 article figtitle {
@@ -698,22 +699,31 @@ article figtitle {
   margin-bottom: 1vw;
 }
 
-.clean-table {
-    margin: 0 auto; 
-    border-collapse: separate;
-    border-spacing: 12px;
-    text-align: center;
+article table {
+  margin: 0 auto;
+  margin-top: 5vw; 
+  margin-bottom: 5vw;
+  border-collapse: separate;
+  border-spacing: 1vw;
+  text-align: center;
 }
 
-.clean-table th {
-    font-weight: normal;
+ article table th {
+  font-weight: normal;
+  padding: 0.1vw 2vw;
+  margin-bottom: -5vw;
 }
 
-.clean-table td,
-.clean-table th {
-    padding: 0.1vw 1vw;
+article table td {
+  padding: 0.1vw 0.1vw;
 }
 
+article table caption {
+  caption-side: bottom;
+  margin-top: 1vw;
+  font-size: 0.7em;
+  font-weight: lighter;
+}
 
 
 
@@ -792,6 +802,8 @@ article figtitle {
 
   article subtitle {
     font-size: 1.1rem;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
   }
 
   article h2 {
@@ -808,12 +820,12 @@ article figtitle {
     text-align: left;
   }
 
-  article subtitle {
-    margin-top: 5vw;
-    margin-bottom: 5vw;
+  article figure {
+    margin-top: 15vw;
+    margin-bottom: 15vw;
   }
 
-  article figure {
+  article table {
     margin-top: 15vw;
     margin-bottom: 15vw;
   }

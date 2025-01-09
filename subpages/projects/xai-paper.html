@@ -54,122 +54,105 @@
                 </p>
 
                 <!-- Introduction -->
-                <h2>1 &nbsp; Introduction</h2>
-
+                <h2>1. &nbsp; Introduction</h2>
+                
                 <h3>1.1 &nbsp; Motivation and Practical Goal</h3>
                 <p>
-                    As Artificial Intelligence (AI) models become increasingly complex, it becomes harder for humans
-                    to understand these systems. This is particularly true in fields like computer vision, where Deep
-                    Neural Networks (DNNs) often function as black-box models, leading even experts to lose track of
-                    their inner workings. This highlights the critical importance of developing methods to explain AI
-                    model decisions.
+                    As Artificial Intelligence (AI) models become increasingly complex, it becomes harder for humans to understand these
+                    systems. This is particularly true in fields like computer vision, where Deep Neural Networks (DNNs) often function
+                    as black-box models, leading even experts to lose track of their inner workings. This highlights the critical
+                    importance of developing methods to explain AI model decisions.
                 </p>
                 <p>
-                    Explainable Artificial Intelligence (XAI) aims to make AI models more interpretable and
-                    understandable
-                    for humans. XAI seeks to bridge the gap between the opaque nature of traditional AI models and the
-                    need for transparency and accountability in decision-making processes. This is especially crucial
-                    in high-stakes domains such as healthcare, finance, and autonomous systems like self-driving cars,
-                    where decisions can significantly impact people’s lives.
+                    Explainable Artificial Intelligence (XAI) aims to make AI models more interpretable and understandable for humans.
+                    XAI seeks to bridge the gap between the opaque nature of traditional AI models and the need for transparency and
+                    accountability in decision-making processes. This is especially crucial in high-stakes domains such as healthcare,
+                    finance, and autonomous systems like self-driving cars, where decisions can significantly impact people’s lives.
                 </p>
                 <p>
-                    By identifying potential biases, errors, or areas for optimization, XAI can help improve AI models.
-                    Understanding how models make predictions allows us to better identify and address issues that may
-                    lead to inaccurate or unfair outcomes, potentially causing substantial harm. Additionally, XAI can
-                    facilitate better collaboration between humans and AI systems by providing explanations that enable
-                    humans to understand the rationale behind AI’s suggestions, thereby making informed decisions.
+                    By identifying potential biases, errors, or areas for optimization, XAI can help improve AI models. Understanding
+                    how models make predictions allows us to better identify and address issues that may lead to inaccurate or unfair
+                    outcomes, potentially causing substantial harm. Additionally, XAI can facilitate better collaboration between humans
+                    and AI systems by providing explanations that enable humans to understand the rationale behind AI’s suggestions,
+                    thereby making informed decisions.
                 </p>
                 <p>
-                    Overall, XAI is essential for ensuring the responsible and safe use of AI systems. It is relevant
-                    across all areas of AI and will play a crucial role in ensuring transparency, accountability, and
-                    the integration of AI models into society as they continue to evolve.
+                    Overall, XAI is essential for ensuring the responsible and safe use of AI systems. It is relevant across all areas
+                    of AI and will play a crucial role in ensuring transparency, accountability, and the integration of AI models into
+                    society as they continue to evolve.
                 </p>
-
+                
                 <h3>1.2 &nbsp; Problem Statement</h3>
                 <p>
-                    As AI models become more integrated into our daily lives, understanding the factors influencing
-                    their decisions becomes increasingly important. This need has driven researchers to focus on
-                    developing explainability methods for complex models. However, selecting an appropriate XAI method
-                    for a specific application remains a challenge.
+                    As AI models become more integrated into our daily lives, understanding the factors influencing their decisions
+                    becomes increasingly important. This need has driven researchers to focus on developing explainability methods for
+                    complex models. However, selecting an appropriate XAI method for a specific application remains a challenge.
                 </p>
                 <p>
-                    Although there is a vast array of XAI methods available, this paper focuses specifically on Feature
-                    Importance methods due to their critical role in identifying which features are most influential in
-                    the model’s predictions. This is essential for building trust in AI systems and facilitating
-                    informed
-                    decision-making. However, the selection of the appropriate Feature Importance method itself poses
-                    significant problems:
+                    Although there is a vast array of XAI methods available (see Related Work), this paper focuses specifically on
+                    Feature Importance methods due to their critical role in identifying which features are most influential in the
+                    model’s predictions. This is essential for building trust in AI systems and facilitating informed decision-making.
+                    However, the selection of the appropriate Feature Importance method itself poses significant problems:
                 </p>
                 <ol>
                     <li>
-                        <strong>Interpretability vs. Fidelity:</strong> Balancing interpretability and fidelity is
-                        challenging. Interpretability ensures that users can understand the explanations, while fidelity
-                        ensures that the explanations accurately reflect the model’s behavior. High interpretability
-                        often comes at the cost of fidelity and vice versa.
+                        <strong>Interpretability vs. Fidelity:</strong> Balancing interpretability and fidelity is challenging.
+                        Interpretability ensures that users can understand the explanations, while fidelity ensures that the
+                        explanations accurately reflect the model’s behavior. High interpretability often comes at the cost of fidelity
+                        and vice versa.
                     </li>
                     <li>
-                        <strong>Black-Box vs. White-Box Methods:</strong> Deciding between black-box and white-box
-                        methods
-                        for Feature Importance is complex. Black-box methods, like LIME [1], do not require access to
-                        the
-                        model’s internal structure but may lack the depth of explanation provided by white-box methods,
-                        like Grad-CAM [2], which utilize the model’s internal gradients and architecture.
+                        <strong>Black-Box vs. White-Box Methods:</strong> Deciding between black-box and white-box methods for Feature
+                        Importance is complex. Black-box methods, like LIME, do not require access to the model’s internal structure but
+                        may lack the depth of explanation provided by white-box methods, like Grad-CAM, which utilize the model’s
+                        internal gradients and architecture.
                     </li>
                     <li>
-                        <strong>Local vs. Global Explanations:</strong> Feature Importance methods typically provide
-                        local
-                        explanations, focusing on specific predictions rather than the model’s overall behavior. This
-                        localized focus can limit the broader understanding of the model’s decision-making process.
+                        <strong>Local vs. Global Explanations:</strong> Feature Importance methods typically provide local explanations,
+                        focusing on specific predictions rather than the model’s overall behavior. This localized focus can limit the
+                        broader understanding of the model’s decision-making process.
                     </li>
                 </ol>
-
+                
                 <h3>1.3 &nbsp; Scientific Contributions</h3>
                 <p>
-                    This paper addresses the overarching question: <em>How can an appropriate explanation method (XAI
-                        method) be selected for a given application?</em> To answer this, the paper explores two
-                    specific
-                    sub-questions:
+                    This paper addresses the overarching question: <em>How can an appropriate explanation method (XAI method) be
+                        selected for a given application?</em> To answer this, the paper explores two specific sub-questions:
                 </p>
                 <ul>
                     <li>Based on which metrics and criteria can a method be selected?</li>
-                    <li>What are the advantages and disadvantages of white-box and black-box methods for the application
-                        of object recognition?
-                    </li>
+                    <li>What are the advantages and disadvantages of white-box and black-box methods for the application of object
+                        recognition?</li>
                 </ul>
                 <p>
-                    By examining these questions, this paper aims to provide a comprehensive comparison of white-box and
-                    black-box methods, highlighting their suitability and relevance for different use cases.
+                    By examining these questions, this paper aims to provide a comprehensive comparison of white-box and black-box
+                    methods, highlighting their suitability and relevance for different use cases.
                 </p>
-
+                
                 <h3>1.4 &nbsp; Focus</h3>
                 <p>
-                    The goal of this paper is to compare white-box and black-box methods, specifically focusing on
-                    feature
-                    importance techniques. To simplify the comparison, one exemplary method from each category was
-                    chosen:
-                    LIME (Local Interpretable Model-Agnostic Explanations) as a black-box method [1] and Grad-CAM
-                    (Gradient-weighted Class Activation Mapping) as a white-box method [2].
+                    The goal of this paper is to compare white-box and black-box methods, specifically focusing on feature importance
+                    techniques. To simplify the comparison, one exemplary method from each category was chosen. Specifically, this paper
+                    compares LIME (Local Interpretable Model-Agnostic Explanations) [1] as an example of a black-box method and Grad-CAM
+                    (Gradient-weighted Class Activation Mapping) [2] as an example of a white-box method.
                 </p>
-
+                
                 <!-- Background -->
                 <h2>2 &nbsp; Background</h2>
-
+                
                 <h3>2.1 &nbsp; Fundamentals of XAI</h3>
                 <p>
-                    Explainable Artificial Intelligence (XAI) aims to make AI models more interpretable and
-                    understandable
-                    to humans. This is crucial for building trust, ensuring transparency, and facilitating
-                    decision-making
-                    in critical areas such as healthcare, finance, and autonomous systems. XAI techniques can be broadly
-                    categorized into two main approaches: white-box methods and black-box methods.
+                    Explainable Artificial Intelligence (XAI) aims to make AI models more interpretable and understandable to humans.
+                    This is crucial for building trust, ensuring transparency, and facilitating decision-making in critical areas such
+                    as healthcare, finance, and autonomous systems. XAI techniques can be broadly categorized into two main approaches:
+                    white-box methods and black-box methods.
                 </p>
                 <p>
-                    White-box methods rely on an understanding of the internal workings of the AI model to generate
-                    explanations. In contrast, black-box methods do not require prior knowledge of the model’s internal
-                    structure. Instead, they treat the model as a black box and focus on analyzing its input-output
-                    behavior to generate explanations. This approach is particularly useful for complex models such as
-                    deep neural networks (DNNs), where understanding the internal workings is challenging or
-                    impractical.
+                    White-box methods rely on an understanding of the internal workings of the AI model to generate explanations. In
+                    contrast, black-box methods do not require prior knowledge of the model’s internal structure. Instead, they treat
+                    the model as a black box and focus on analyzing its input-output behavior to generate explanations. This approach is
+                    particularly useful for complex models such as deep neural networks (DNNs), where understanding the internal
+                    workings is challenging or impractical.
                 </p>
 
                 <h4>2.1.1 &nbsp; White-Box Methods</h4>
@@ -249,7 +232,7 @@
                     underlying model is too complex to understand directly. The primary goal is to offer explanations that are faithful to
                     the model’s predictions, making them understandable to humans regardless of the features utilized by the model.
                 </p>
-                
+
                 <p>
                     LIME approximates the complex decision function of the model $f$ with a simpler, interpretable model $g$ within a local
                     region around the instance to be explained. This is achieved by generating a set of perturbed samples around the
@@ -377,24 +360,70 @@
 
                 <h3>2.4 &nbsp; Evaluation of Feature Importance Methods</h3>
                 <p>
-                    Comparing explanation techniques and objectively evaluating their quality is challenging.
-                    Explanation
-                    Selectivity [3] is a quantitative metric used to assess the quality of
-                    an explanation method for feature importance in DNNs. It measures how well the method identifies
-                    the features that have the strongest impact on a DNN’s prediction.
+                    The challenge of comparing explanation techniques and objectively evaluating their quality lies in the nature of DNN
+                    predictions. Often, these predictions might only be interpretable by experts. Consequently, an explanation technique
+                    itself might also require expert knowledge for interpretation. To address this, we can introduce quantitative
+                    metrics that provide a more objective assessment of explanation quality.
                 </p>
                 <p>
-                    The process involves iteratively removing features based on their assigned relevance scores and
-                    tracking how the DNN’s prediction value drops. A steep drop after removing a small number of
-                    features
-                    indicates good selectivity. The Area Under the Curve (AUC) of this “prediction drop vs. number of
-                    features removed” graph serves as the final score, with lower AUC indicating better selectivity.
+                    Explanation Selectivity, as described in [3], is a quantitative metric used to assess the quality of an explanation
+                    method for feature importance in DNNs. This metric measures how well the explanation method identifies the features
+                    that have the strongest impact on the DNN’s prediction.
                 </p>
                 <p>
-                    While Explanation Selectivity provides a more objective and quantitative measure than a purely
-                    qualitative approach, it does come with caveats such as potential computational cost and the need
-                    for expert interpretation of results. Nonetheless, it remains a valuable method to compare and
-                    validate different explanation techniques, including LIME [1] and Grad-CAM [2].
+                    The method works by iteratively removing features based on their assigned relevance scores (provided by the
+                    explanation method) and tracking how much the DNN’s prediction value drops after removing each feature. A sharp drop
+                    in prediction value after removing a feature indicates high selectivity, meaning the explanation method effectively
+                    identified a feature with a strong influence on the prediction.
+                </p>
+                <p>
+                    To evaluate Explanation Selectivity, we use the Area Under the Curve (AUC) score, where the curve plots the drop in
+                    prediction value against the number of features removed. A lower AUC score indicates better selectivity because it
+                    suggests that removing a small number of high-relevance features results in a significant drop in prediction
+                    accuracy. This provides an intuitive interpretation: the explanation method that better identifies the key features
+                    will show a steeper initial drop, resulting in a lower AUC.
+                </p>
+                <p>
+                    In this paper, Explanation Selectivity is used to compare the feature importance methods of LIME and Grad-CAM. By
+                    applying this metric, we aim to objectively determine which method assigns relevance scores that best reflect the
+                    actual feature importance for the DNN’s prediction.
+                </p>
+                <p>
+                    One of the primary advantages of using Explanation Selectivity is its ability to offer a quantitative assessment of
+                    different explanation methods. This makes the evaluation process more objective, as it relies on measurable changes
+                    in the model’s performance rather than subjective judgments. Furthermore, the AUC score provides an intuitive
+                    measure of how well an explanation method identifies key features. A lower AUC score, indicating better selectivity,
+                    is easy to understand and interpret, even for those who may not be experts in the field.
+                </p>
+                <p>
+                    Another significant benefit of Explanation Selectivity is its versatility. This metric can be applied to any DNN,
+                    regardless of the specific architecture or application domain. This makes it a valuable tool for researchers and
+                    practitioners who need to evaluate and compare the effectiveness of various feature importance methods across
+                    different models and datasets.
+                </p>
+                <p>
+                    However, there are also some notable disadvantages to consider. One challenge is that interpreting the results of
+                    Explanation Selectivity might still require expert knowledge. Understanding the implications of the AUC score,
+                    particularly in the context of specific applications, can be complex and may necessitate a deeper understanding of
+                    the model and the domain in which it is applied.
+                </p>
+                <p>
+                    Additionally, the computational cost of using Explanation Selectivity can be significant. The process involves
+                    iteratively removing features and recalculating the prediction value, which can be computationally intensive,
+                    especially for large models and datasets. This can be a limiting factor in scenarios where computational resources
+                    are constrained or when working with very large-scale models.
+                </p>
+                <p>
+                    Explanation Selectivity is a powerful and intuitive metric for evaluating feature importance methods in DNNs. By
+                    comparing the AUC scores of LIME and Grad-CAM, we can gain insights into which method provides more accurate and
+                    useful explanations. While it offers several advantages, including quantitative assessment and versatility, it also
+                    presents challenges in terms of expert knowledge requirements and computational cost. By carefully considering these
+                    factors, we can effectively use Explanation Selectivity to gain valuable insights into the performance of different
+                    explanation methods. This ultimately helps us answer the question of how to select an appropriate explanation method
+                    for a given application. More specifically, Explanation Selectivity enables us to evaluate the advantages and
+                    disadvantages of white-box and black-box methods for the application of object recognition. Furthermore, it allows
+                    us to make informed selections based on the metrics and criteria identified, thereby addressing the overarching
+                    research question and its sub-questions.
                 </p>
 
                 <!-- Evaluation of LIME and GradCAM -->
@@ -402,186 +431,307 @@
 
                 <h3>3.1 &nbsp; Relevance of the Use Case</h3>
                 <p>
-                    Object recognition was selected as a relevant use case for this study. The images used represent
-                    real-world objects often involved in automatic classification systems in domains such as healthcare,
-                    finance, and autonomous systems. Understanding which features drive these decisions is critical to
-                    enhancing trust in AI models.
+                    Object recognition was selected as a relevant use case for this study. The images used represent real-world objects
+                    often involved in automatic classification systems in domains such as healthcare, finance, and autonomous systems
+                    like self-driving cars, where decisions can significantly impact people’s lives. Understanding which features drive
+                    these decisions is critical to enhancing trust in AI models.
                 </p>
-
+                
                 <h3>3.2 &nbsp; Experimental Setup</h3>
                 <p>
-                    In this experiment, 20 distinct images were tested on two models, AlexNet [5] and ResNet50,
-                    using the
-                    explanation methods LIME [1] and GradCAM [2], over ten runs, resulting in a total of 800 test
-                    instances.
-                    Explanation Selectivity [3], measured by the AUC score, was employed as the comparison metric.
-                    The AUC
-                    scores were computed by iteratively removing the most relevant features identified by the
-                    explainers.
+                    In this experiment, 20 distinct images were tested on two models, AlexNet [5] and ResNet50, using the explanation
+                    methods LIME and GradCAM, over ten runs: \(20 \times 2 \times 2 \times 10 = 800\) test instances in total.
+                    Explanation Selectivity, measured by the AUC score, was employed as the comparison metric. The AUC scores were
+                    computed by iteratively removing the most relevant features as identified by the explainers.
                 </p>
                 <p>
-                    All images were correctly classified by both models before the experiments. A varied selection of
-                    images and multiple runs per test instance helped stabilize results and examine the explainers’
-                    stability. Two different classification models with distinct architectures were selected to assess
-                    how the explainers perform across different model types.
+                    All images were correctly classified by both models before the experiments. A varied selection of images, combined
+                    with ten runs per test instance, helped stabilize the results and examine the explainers’ stability. Two different
+                    classification models with distinct architectures were selected to assess how the explainers perform across
+                    different model types.
                 </p>
 
                 <h3>3.3 &nbsp; Experimental Results</h3>
                 <p>
-                    The AUC values in the figure and table below demonstrate that LIME [1] outperforms GradCAM [2] in
-                    terms of
-                    the average AUC score across the entire sample set on ResNet50. However, on AlexNet [5], their
-                    performances are almost similar. GradCAM’s performance can vary significantly depending on the
-                    specific image being analyzed, whereas LIME exhibits variability across runs due to its randomized
-                    nature.
+                    The AUC values displayed in Figure 1 and summarized in Table 1 demonstrate that LIME outperforms GradCAM in terms of
+                    the average AUC score across the entire sample set. Specifically, on ResNet50, LIME achieves a notably lower AUC
+                    score (approximately 11.85) compared to GradCAM (approximately 14.79), indicating superior Explanation Selectivity.
+                    On AlexNet, the difference between LIME and GradCAM is marginal, with GradCAM scoring approximately 10.77, while
+                    LIME scores 10.69, suggesting that both methods perform similarly in this context.
                 </p>
-
-                <!-- Example figure: Average AUC per model -->
+                
+                <!-- Figure 1: Average AUC values per Model and Explainer -->
                 <figure>
-                    <img src="/src/xai-paper/grafics/average-auc-per-exp-and-model-plus-std-dev.png"
-                        alt="Average AUC per Model" />
-                    <figcaption>Figure: Average AUC per Model and Explainer with Standard Deviation</figcaption>
+                    <img src="/src/xai-paper/grafics/average-auc-per-exp-and-model-plus-std-dev.png" alt="Average AUC values per Model and Explainer"
+                        style="width:80%;">
+                    <figcaption>Figure 1: Average AUC values per Model and Explainer. Standard deviation shows how the AUC values vary
+                        across the entire sample set.</figcaption>
                 </figure>
-
-                <!-- AUC Scores -->
-                <figure>
-                    <figtitle>Average AUC Score per model and explainer</figtitle>
-                    <table class="clean-table">
-                        <thead>
-                            <tr>
-                                <th>Model</th>
-                                <th>GradCAM</th>
-                                <th>LIME</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>AlexNet</td>
-                                <td>10.772466</td>
-                                <td>10.689476</td>
-                            </tr>
-                            <tr>
-                                <td>ResNet50</td>
-                                <td>14.792458</td>
-                                <td>11.851634</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </figure>
-
+                
+                <!-- Table 1: Average AUC Score -->
+                <table>
+                    <caption>Table 1: Average AUC Score per model and explainer</caption>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>GradCAM</th>
+                            <th>LIME</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AlexNet</td>
+                            <td>10.772466</td>
+                            <td>10.689476</td>
+                        </tr>
+                        <tr>
+                            <td>ResNet50</td>
+                            <td>14.792458</td>
+                            <td>11.851634</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
                 <p>
-                    GradCAM’s deterministic nature leads to consistent results across multiple runs, whereas LIME [1]
-                    re-learns local approximations and can produce more variability. For some images, GradCAM [2] can
-                    significantly outperform LIME [1]; for others, the reverse is true. This trade-off between average
-                    performance and stability should be considered when choosing between the two methods.
+                    These results suggest that LIME is generally more effective at identifying the most relevant features, as indicated
+                    by the lower AUC values, particularly on ResNet50. However, this trend does not hold universally across all
+                    instances. For example, in some cases, GradCAM significantly outperforms LIME, such as the Labrador image on
+                    AlexNet, where GradCAM achieves a much lower AUC value (approximately 2.0) compared to LIME’s 14.88 in the first
+                    run. This suggests that GradCAM’s performance can be highly dependent on the specific image being analyzed.
                 </p>
-
-                <!-- Another sample figure with 10-run lineplot -->
+                
+                <!-- Figure 2: AUC over 10 runs for three sample images -->
                 <figure>
-                    <img src="/src/xai-paper/grafics/auc-over10-runs-lineplot.png"
-                        alt="AUC over 10 runs for sample images" />
-                    <figcaption>Figure: AUC scores over 10 runs for three sample images</figcaption>
+                    <img src="/src/xai-paper/grafics/auc-over10-runs-lineplot.png" alt="AUC over 10 runs for three sample images" style="width:80%;">
+                    <figcaption>Figure 2: AUC scores over 10 runs for three sample images.</figcaption>
                 </figure>
+                
+                <p>
+                    The standard deviation of AUC values (Tables 2 and 3) provides further insight into the stability of each explainer
+                    across different models. On AlexNet, GradCAM exhibits higher variance in AUC scores compared to LIME, suggesting
+                    less consistency in its explanations. Conversely, on ResNet50, GradCAM shows lower variance than LIME, highlighting
+                    the model-dependent nature of both methods’ performance.
+                </p>
+                
+                <!-- Table 2: Standard deviation of average AUC per model and explainer -->
+                <table>
+                    <caption>Table 2: Standard deviation of average AUC per model and explainer</caption>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>GradCAM</th>
+                            <th>LIME</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AlexNet</td>
+                            <td>7.586148</td>
+                            <td>5.835976</td>
+                        </tr>
+                        <tr>
+                            <td>ResNet50</td>
+                            <td>2.991967</td>
+                            <td>4.118034</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>
+                    One of GradCAM’s most significant strengths lies in its deterministic nature due to its white-box approach. While
+                    LIME (a black-box method) learns a new approximation of the local explanation with each run, GradCAM produces
+                    consistent results across multiple runs. This is illustrated in Figure 2, where the AUC for GradCAM remains stable
+                    across 10 runs for the same image, whereas LIME’s AUC values vary significantly. This variability in LIME’s
+                    performance, particularly when analyzing individual test instances, raises concerns about the reliability of its
+                    explanations.
+                </p>
+                
+                <!-- Table 3: Standard deviation on three sample images per explainer on AlexNet -->
+                <table>
+                    <caption>Table 3: Standard deviation on three sample images per explainer on AlexNet</caption>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>GradCAM</th>
+                            <th>LIME</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tabby</td>
+                            <td>0.0</td>
+                            <td>1.789748</td>
+                        </tr>
+                        <tr>
+                            <td>Labrador</td>
+                            <td>0.0</td>
+                            <td>1.264012</td>
+                        </tr>
+                        <tr>
+                            <td>Tiger</td>
+                            <td>0.0</td>
+                            <td>2.343777</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>
+                    Overall, while LIME achieves better average AUC scores, GradCAM’s performance is more consistent across multiple
+                    runs and is highly dependent on the model being used. This trade-off between average performance and stability
+                    should be considered when choosing between the two methods, depending on the specific application and the need for
+                    reliable, repeatable explanations.
+                </p>
 
                 <!-- Discussion -->
                 <h2>4 &nbsp; Discussion</h2>
-
+                
                 <h3>4.1 &nbsp; Interpretation of Results</h3>
                 <p>
-                    The experimental results show that LIME [1] outperforms GradCAM [2] on average AUC scores,
-                    particularly on
-                    ResNet50, suggesting it identifies relevant features more effectively in many cases. However, LIME’s
-                    performance varies across runs due to its black-box nature and local approximation strategy.
-                    GradCAM [2],
-                    while it may have higher average AUC in some settings, is more stable because it depends directly on
-                    the model’s internal gradients.
-                </p>
-                <p>
-                    In high-stakes contexts where explanation repeatability is critical (e.g., medical imaging),
-                    GradCAM’s
-                    consistent behavior can foster greater trust. LIME’s flexibility, on the other hand, makes it
-                    well-suited
-                    for situations requiring model-agnostic solutions across diverse architectures or frequently
-                    changing
-                    models.
+                    The experimental results provided valuable insights into the relative strengths and weaknesses of the two XAI
+                    methods—LIME and GradCAM—when applied to object recognition tasks. From the results, it is evident that LIME
+                    outperformed GradCAM on average AUC scores, particularly on ResNet50, where LIME achieved significantly lower AUC
+                    values. This suggests that LIME is better at focusing on the most relevant parts of an image, offering a higher
+                    degree of Explanation Selectivity across models. However, this benefit comes at the cost of stability, as LIME’s
+                    performance varies across runs due to its black-box nature.
                 </p>
 
+                <!-- Table 4: Standard deviation on three sample images per explainer on ResNet50 -->
+                <table>
+                    
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>GradCAM</th>
+                            <th>LIME</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tabby</td>
+                            <td>0.0</td>
+                            <td>0.633267</td>
+                        </tr>
+                        <tr>
+                            <td>Labrador</td>
+                            <td>0.0</td>
+                            <td>1.256239</td>
+                        </tr>
+                        <tr>
+                            <td>Tiger</td>
+                            <td>0.0</td>
+                            <td>2.033908</td>
+                        </tr>
+                    </tbody>
+                    <caption>Table 4: Standard deviation on three sample images per explainer on ResNet50</caption>
+                </table>
+                
+                <p>
+                    In contrast, GradCAM displayed greater consistency and robustness across multiple runs, as seen in its minimal
+                    variance in AUC scores. This stability is a key strength, particularly in applications where repeatability is
+                    critical. While LIME’s average performance is better, GradCAM’s deterministic behavior can foster greater trust in
+                    high-stakes environments where stable and repeatable explanations are paramount.
+                </p>
+                
                 <h3>4.2 &nbsp; Application-Specific Assessment</h3>
                 <p>
-                    For the object recognition use case, LIME’s superior average performance may be appealing. However,
-                    if consistent, model-specific explanations are paramount—particularly in regulated or expert-driven
-                    scenarios—GradCAM’s deterministic nature and deeper architectural insights may prove more valuable.
+                    For the specific use case of object recognition, where understanding which parts of an image contributed to a
+                    classification is essential, LIME’s superior average AUC performance makes it a strong contender. However, GradCAM’s
+                    robustness offers a distinct advantage in scenarios that demand consistent, model-specific explanations.
                 </p>
                 <p>
-                    In medical imaging, autonomous driving, or finance, where model explainability can affect critical
-                    decisions, GradCAM’s repeatability can be especially advantageous. Conversely, for rapid prototyping
-                    or large-scale systems with multiple models, LIME’s model-agnostic approach allows quick deployment
-                    of explainers without delving into the complexities of each model architecture.
+                    In real-world applications such as medical imaging or autonomous driving, where reliability and trust in AI models
+                    are crucial because it can directly impact decision-making, GradCAM’s deterministic output is likely to be more
+                    advantageous. Its ability to generate consistent and repeatable explanations may lead to higher trust, particularly
+                    in fields like medicine, where understanding the rationale behind decisions is critical for both practitioners and
+                    patients. Additionally, GradCAM’s integration with the model architecture provides deeper insights into how the
+                    model arrives at its decisions, making it valuable in expert-driven fields such as pathology or robotics.
                 </p>
-
+                <p>
+                    Conversely, LIME’s adaptability and model-agnostic nature make it well-suited for broader applications where the
+                    focus is on generalization across different models. For example, in applications involving rapidly changing datasets
+                    or models, such as product recommendation systems or real-time image analysis, LIME’s flexibility allows it to
+                    provide effective explanations without needing access to model internals.
+                </p>
+                <p>
+                    Ultimately, the findings suggest that the selection of an XAI method should be guided by the specific needs of the
+                    application, balancing the trade-offs between explanation accuracy (as seen with LIME) and explanation consistency
+                    (as demonstrated by GradCAM). For high-stakes environments requiring stable, model-specific insights, white-box
+                    methods like GradCAM are preferable. For broader applications needing flexibility, black-box methods like LIME offer
+                    greater generalization and adaptability.
+                </p>
+                
                 <h3>4.3 &nbsp; Generalization of Results</h3>
                 <p>
-                    While our experiments focused on AlexNet [5] and ResNet50 for object recognition, similar trade-offs
-                    between white-box and black-box explanation methods likely exist for other models and tasks.
-                    GradCAM’s strength lies in its high fidelity and stability, whereas LIME offers broader
-                    applicability
-                    and adaptability at the potential cost of variability. Ultimately, the choice of XAI method should
-                    consider the specific needs, constraints, and risks associated with the application domain.
+                    The results of this study suggest broader implications for the selection of XAI methods across various domains.
+                    While the experiments were conducted using AlexNet and ResNet50, the trade-offs between white-box and black-box
+                    methods observed here are likely applicable to other models and tasks beyond image classification.
                 </p>
-
+                <p>
+                    When selecting an XAI method, it is essential to consider the context and requirements of the application. For
+                    scenarios where consistency and model-specific insights are critical—such as in regulated industries or research
+                    environments—white-box methods like GradCAM provide significant advantages. GradCAM’s internal knowledge of the
+                    model’s architecture allows it to offer stable and transparent explanations that enhance user trust.
+                </p>
+                <p>
+                    On the other hand, black-box methods like LIME may be preferable in applications that demand flexibility and
+                    generalization across different models. LIME’s ability to provide explanations for any model makes it a versatile
+                    tool, especially in dynamic environments where AI systems are frequently updated or retrained.
+                </p>
+                
                 <!-- Acknowledgments -->
                 <h2>Acknowledgments</h2>
                 <p>
-                    I sincerely thank my supervisor, Dr. Gesina Schwalbe, for her unwavering guidance and support
-                    throughout
-                    this research project. I am deeply grateful for her valuable feedback, thoughtful suggestions, and
-                    the
-                    immense amount of time she dedicated to ensuring we truly understood the subject. This Project has
-                    reignited my enthusiasm for Artificial Intelligence and provided me with profound insights into the
-                    world of professional research. This project would not have been possible without her dedication and
-                    contributions.
-                </p>
+                    I sincerely thank my supervisor, Dr. Gesina Schwalbe, for her unwavering guidance and support throughout this
+                    research project. I am deeply grateful for her valuable feedback, thoughtful suggestions, and the immense amount of
+                    time she dedicated to ensuring we truly understood the subject. This Project has reignited my enthusiasm for
+                    Artificial Intelligence and provided me with profound insights into the world of professional research. This project
+                    would not have been possible without her dedication and contributions.
+                </p>                
 
                 <!-- Example: Additional Figures -->
                 <h2>Appendix: Application of Explanation Selectivity</h2>
                 <p>
-                    Below are a few sample figures illustrating the feature removal process and the corresponding AUC
-                    scores for GradCAM on AlexNet [5] and LIME on ResNet50:
+                    Figure 3 illustrates the feature removal process for GradCAM on AlexNet using the labrador test image. The heatmap
+                    generated by GradCAM highlights the dog’s face as the most important feature, which is consistent with the model’s
+                    classification. The AUC score for this instance is shown in Figure 4, indicating the effectiveness of GradCAM in
+                    identifying the key features for the model’s prediction. Additionally, Figure 5 demonstrates the feature removal
+                    process for LIME on ResNet50 using the tabby test image. LIME generates a local explanation around the instance
+                    being explained, highlighting the features that are most influential for the model’s prediction. The AUC score for
+                    this instance is shown in Figure 6, providing insights into LIME’s performance in identifying the key features for
+                    the model’s decision-making process.
                 </p>
-
+                
                 <figure>
-                    <img src="/src/xai-paper/grafics/gradcam-labrador-feature-removal.png"
-                        alt="GradCAM Labrador Feature Removal" />
-                    <figcaption>GradCAM on AlexNet [5]: Identifies the dog's face as the most important feature.
-                    </figcaption>
+                    <img src="/src/xai-paper/grafics/gradcam-labrador-feature-removal.png" alt="GradCAM Labrador Feature Removal" />
+                    <figcaption>Figure 3: GradCAM on AlexNet. Notice how it correctly identifies the dog's face as most important
+                        feature.</figcaption>
                 </figure>
-
+                
                 <figure>
                     <img src="/src/xai-paper/grafics/gradcam-labrador-auc.png" alt="GradCAM Labrador AUC Score" />
-                    <figcaption>AUC score for GradCAM on AlexNet [5] for labrador test image.</figcaption>
+                    <figcaption>Figure 4: AUC score for GradCAM on AlexNet for labrador test image.</figcaption>
                 </figure>
-
+                
                 <figure>
                     <img src="/src/xai-paper/grafics/lime-tabby-feature-removal.png" alt="LIME Tabby Feature Removal" />
-                    <figcaption>LIME on ResNet50: Highlights critical superpixels for a cat image.</figcaption>
+                    <figcaption>Figure 5: LIME on ResNet50. LIME learns a local explanation around the instance being explained.
+                    </figcaption>
                 </figure>
-
+                
                 <figure>
                     <img src="/src/xai-paper/grafics/lime-tabby-auc.png" alt="LIME Tabby AUC Score" />
-                    <figcaption>AUC score for LIME on ResNet50 for cat test image.</figcaption>
+                    <figcaption>Figure 6: AUC score for LIME on ResNet for cat test image.</figcaption>
                 </figure>
-
-                <!-- Numbered References -->
+                
                 <h2>References</h2>
                 <ol>
-                    <li>Ribeiro, M.T., Singh, S. & Guestrin, C. 2016. “Why Should I Trust You?”: Explaining the
-                        Predictions of Any Classifier.</li>
+                    <li>Ribeiro, M.T., Singh, S. & Guestrin, C. 2016. “Why Should I Trust You?”: Explaining the Predictions of Any
+                        Classifier.</li>
                     <li>Selvaraju, R. R. et al. 2019. Grad-CAM: Visual Explanations from Deep Networks.</li>
                     <li>Montavon, G. et al. 2018. Methods for interpreting and understanding deep neural networks.</li>
-                    <li>Simonyan, K. & Zisserman, A. 2015. Very deep convolutional networks for large-scale image
-                        recognition.</li>
-                    <li>Krizhevsky, A., Sutskever, I., & Hinton, G. E. 2012. ImageNet classification with deep
-                        convolutional neural networks.</li>
+                    <li>Simonyan, K. & Zisserman, A. 2015. Very deep convolutional networks for large-scale image recognition.</li>
+                    <li>Krizhevsky, A., Sutskever, I., & Hinton, G. E. 2012. ImageNet classification with deep convolutional neural
+                        networks.</li>
                 </ol>
 
                 <p><a href="/src/xai-paper/whit-vs-blackbox-study.pdf">Link to pdf</a></p>
