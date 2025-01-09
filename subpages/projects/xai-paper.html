@@ -113,6 +113,10 @@
                         broader understanding of the model’s decision-making process.
                     </li>
                 </ol>
+
+                <p>
+                    Given these challenges, it is crucial to understand the tradeoffs involved in selecting the appropriate Feature Importance method. An analysis of black-box and white-box Feature Importance methods for local explanations can provide valuable insights into these trade-offs, thereby aiding in making well-informed decisions, and ultimately enhancing trust in AI models, as they become omnipresent in our lives.
+                </p>
                 
                 <h3>1.3 &nbsp; Scientific Contributions</h3>
                 <p>
@@ -176,7 +180,7 @@
                     each input feature.
                 </p>
                 <p>
-                    <em>Advantages and Disadvantages:</em> White-box methods have the advantage of high fidelity due
+                    White-box methods have the advantage of high fidelity due
                     to direct access to model parameters. This allows for detailed insights into the model’s
                     decision-making
                     process. However, their applicability diminishes with the complexity of the model. As models like
@@ -203,11 +207,16 @@
                     the predictions of the complex model within a local region around the instance being explained.
                 </p>
                 <p>
-                    <em>Advantages and Disadvantages:</em> Black-box methods are highly versatile and can be applied
+                    Black-box methods are highly versatile and can be applied
                     to any black-box model without requiring internal access. This flexibility makes them suitable for
                     a wide range of models and data types. However, these methods can be computationally intensive due
                     to the need for multiple model evaluations. Additionally, the explanations they produce may vary
                     depending on the locality considered, which can lead to less consistent results.
+                </p>
+                <p>
+                    The choice between white-box and black-box methods depends on the specific AI model and application. White-box
+                    methods provide detailed, interpretable insights but may be less practical for complex models like DNNs. Black-box
+                    methods, while more flexible and applicable to any model, can be computationally expensive and may produce less consistent explanations. Understanding these trade-offs is crucial for selecting the appropriate XAI method for a given application, ensuring that the explanations are both accurate and useful for end-users.
                 </p>
 
                 <h4>2.1.3 &nbsp; Feature Importance</h4>
@@ -223,24 +232,27 @@
                 </p>
 
                 <h3>2.2 &nbsp; Grad-CAM: White-Box Method</h3>
+
                 <p>
-                    %Functional Description
-                    LIME (Local Interpretable Model-Agnostic Explanations) aims to provide interpretable explanations for the predictions of
-                    black-box models within a local region around the instance being explained by approximating the model locally with a
-                    simpler, interpretable model. The method is designed to be model-agnostic, meaning it can be applied to any classifier
-                    without requiring access to the model’s internal structure. LIME is particularly valuable in scenarios where the
-                    underlying model is too complex to understand directly. The primary goal is to offer explanations that are faithful to
-                    the model’s predictions, making them understandable to humans regardless of the features utilized by the model.
+                    Grad-CAM (Gradient-weighted Class Activation Mapping)
+                    aims to provide visual explanations for the decisions made
+                    by Convolutional Neural Networks (CNNs). By generating a heatmap that highlights important regions in the input
+                    image, Grad-CAM helps identify which parts of the image
+                    are most influential in the model’s decision-making process.
+                    This method is particularly useful in applications like medical
+                    imaging, where understanding the model’s focus can enhance
+                    trust and decision-making.
                 </p>
 
                 <p>
-                    LIME approximates the complex decision function of the model $f$ with a simpler, interpretable model $g$ within a local
-                    region around the instance to be explained. This is achieved by generating a set of perturbed samples around the
-                    instance and observing the black-box model’s predictions for these samples. The perturbed samples are weighted based on
-                    their proximity to the original instance, and an interpretable model is trained on these samples to approximate the
-                    local decision boundary of the black-box model. The resulting explanation highlights the features that are most
-                    influential for the prediction in the local neighborhood of the instance.
+                    Grad-CAM leverages the gradients flowing into the last
+                    convolutional layer of a CNN to assign importance to the neurons for a specific class. By combining these gradients with
+                    the feature maps of the last convolutional layer, Grad-CAM
+                    produces a localization map that highlights the regions of the
+                    input image that are most relevant to the prediction. This approach uses the internal architecture of the model, making it
+                    a white-box method.
                 </p>
+                
 
                 <p>Detailed Steps:
                     <ol>
@@ -290,15 +302,28 @@
                 
                 <p>
                     LIME (Local Interpretable Model-Agnostic Explanations) aims to provide interpretable explanations for the
-                    predictions of black-box models within a local region around the instance being explained by approximating the model
-                    locally with a simpler, interpretable model. The method is designed to be model-agnostic, meaning it can be applied
-                    to any classifier without requiring access to the model’s internal structure. LIME is particularly valuable in
-                    scenarios where the underlying model is too complex to understand directly. The primary goal is to offer
-                    explanations that are faithful to the model’s predictions, making them understandable to humans regardless of the
-                    features utilized by the model.
+                    predictions of
+                    black-box models within a local region around the instance being explained by approximating the model locally with a
+                    simpler, interpretable model. The method is designed to be model-agnostic, meaning it can be applied to any
+                    classifier
+                    without requiring access to the model’s internal structure. LIME is particularly valuable in scenarios where the
+                    underlying model is too complex to understand directly. The primary goal is to offer explanations that are faithful
+                    to
+                    the model’s predictions, making them understandable to humans regardless of the features utilized by the model.
                 </p>
                 
-                <h3>Detailed Steps:</h3>
+                <p>
+                    LIME approximates the complex decision function of the model $f$ with a simpler, interpretable model $g$ within a
+                    local
+                    region around the instance to be explained. This is achieved by generating a set of perturbed samples around the
+                    instance and observing the black-box model’s predictions for these samples. The perturbed samples are weighted based
+                    on
+                    their proximity to the original instance, and an interpretable model is trained on these samples to approximate the
+                    local decision boundary of the black-box model. The resulting explanation highlights the features that are most
+                    influential for the prediction in the local neighborhood of the instance.
+                </p>
+                
+                <p>Detailed Steps:
                 <ol>
                     <li>
                         <strong>Generation of Perturbed Samples:</strong><br>
@@ -340,6 +365,7 @@
                         more effectively.
                     </li>
                 </ol>
+                </p>
 
                 <p>
                     For image classification, LIME can explain why a particular image was classified as a dog by highlighting the
